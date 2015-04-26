@@ -19,6 +19,11 @@ The Mongo Database
 #### [Passport]
 Simple, unobtrusive authentication for Node.js
 
+## Platforms
+#### Android
+#### iOS
+#### Web
+
 [MongoDB]:https://github.com/mongodb/mongo
 [Express]:https://github.com/strongloop/express
 [AngularJS]:https://github.com/angular/angular.js
