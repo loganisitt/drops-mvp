@@ -1,4 +1,4 @@
-# Dropout Boilerplate
+# Drops MVP
 ## About
 ###### The goal of this repository is to create a stack that can be moulded into what ever product we wish to create.
 ## Stack

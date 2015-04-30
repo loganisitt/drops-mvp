@@ -1,0 +1,39 @@
+{
+  "name": "drops-mvp",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.9.3",
+    "express": "^4.10.8",
+    "jsonwebtoken": "^1.2.0",
+    "mongoose": "~3.8.19",
+    "morgan": "~1.5.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "HTML enhanced for web apps #### [Android Push Notification] A NodeJS wrapper library port to send data to Android devices via Google Cloud Messaging #### [Apple Push Notification] Apple Push Notification module for Node.js #### [Elasticsearch] Open Source, Distributed, RESTful Search Engine #### [Express] Fast, unopinionated, minimalist web framework for node #### [Node.js] Evented I/O for v8 javascript #### [MongoDB] The Mongo Database #### [Passport] Simple, unobtrusive authentication for Node.js",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-jshint": "^1.10.0",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-ng-annotate": "^0.5.2",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^1.3.3",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loganisitt/dropout-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loganisitt/dropout-boilerplate/issues"
+  },
+  "homepage": "https://github.com/loganisitt/dropout-boilerplate"
+}
