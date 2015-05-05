@@ -24,6 +24,9 @@ Simple, unobtrusive authentication for Node.js
 #### iOS
 #### Web
 
+## Quick Links
+Facebook Developer Dashboard - https://developers.facebook.com/apps/383164105202097/dashboard/ 
+
 [MongoDB]:https://github.com/mongodb/mongo
 [Express]:https://github.com/strongloop/express
 [AngularJS]:https://github.com/angular/angular.js
