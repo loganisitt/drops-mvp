@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02589A711AFA7FC000596A4E /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02589A651AFA7FA900596A4E /* Cartography.framework */; };
+		02589A721AFA7FC000596A4E /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02589A651AFA7FA900596A4E /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02589A771AFA84D300596A4E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A761AFA84D300596A4E /* Client.swift */; };
+		02589A791AFA8C2200596A4E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A781AFA8C2200596A4E /* SignUpViewController.swift */; };
+		02589A7B1AFA8F3500596A4E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A7A1AFA8F3500596A4E /* RootViewController.swift */; };
 		02CA01741AF846D9005E32BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CA01731AF846D9005E32BB /* AppDelegate.swift */; };
-		02CA01761AF846D9005E32BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CA01751AF846D9005E32BB /* ViewController.swift */; };
+		02CA01761AF846D9005E32BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CA01751AF846D9005E32BB /* LoginViewController.swift */; };
 		02CA01791AF846D9005E32BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CA01771AF846D9005E32BB /* Main.storyboard */; };
 		02CA017B1AF846D9005E32BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CA017A1AF846D9005E32BB /* Images.xcassets */; };
 		02CA017E1AF846D9005E32BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CA017C1AF846D9005E32BB /* LaunchScreen.xib */; };
@@ -17,6 +22,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		02589A641AFA7FA900596A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C96A11195063CD000CDD27;
+			remoteInfo = "Cartography-iOS";
+		};
+		02589A661AFA7FA900596A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C96A1C195063CD000CDD27;
+			remoteInfo = "Cartography-iOS-Tests";
+		};
+		02589A681AFA7FA900596A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54F6A838195C20C100313D24;
+			remoteInfo = "Cartography-Mac";
+		};
+		02589A6A1AFA7FA900596A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54F6A842195C20C200313D24;
+			remoteInfo = "Cartography-Mac-Tests";
+		};
+		02589A731AFA7FC000596A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 54C96A10195063CD000CDD27;
+			remoteInfo = "Cartography-iOS";
+		};
 		02CA01841AF846D9005E32BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02CA01661AF846D9005E32BB /* Project object */;
@@ -26,11 +66,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		02589A751AFA7FC100596A4E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02589A721AFA7FC000596A4E /* Cartography.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
+		02589A761AFA84D300596A4E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		02589A781AFA8C2200596A4E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		02589A7A1AFA8F3500596A4E /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		02CA016E1AF846D9005E32BB /* Drops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02CA01721AF846D9005E32BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CA01731AF846D9005E32BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		02CA01751AF846D9005E32BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02CA01751AF846D9005E32BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02CA01781AF846D9005E32BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02CA017A1AF846D9005E32BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		02CA017D1AF846D9005E32BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -49,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				175B15E66F2317DA67DFD16D /* Pods.framework in Frameworks */,
+				02589A711AFA7FC000596A4E /* Cartography.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,9 +121,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02589A5E1AFA7FA900596A4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02589A651AFA7FA900596A4E /* Cartography.framework */,
+				02589A671AFA7FA900596A4E /* Cartography-iOS-Tests.xctest */,
+				02589A691AFA7FA900596A4E /* Cartography.framework */,
+				02589A6B1AFA7FA900596A4E /* Cartography-Mac-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		02CA01651AF846D9005E32BB = {
 			isa = PBXGroup;
 			children = (
+				02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */,
 				02CA01701AF846D9005E32BB /* Drops */,
 				02CA01861AF846D9005E32BB /* DropsTests */,
 				02CA016F1AF846D9005E32BB /* Products */,
@@ -85,9 +156,12 @@
 		02CA01701AF846D9005E32BB /* Drops */ = {
 			isa = PBXGroup;
 			children = (
-				02CA01731AF846D9005E32BB /* AppDelegate.swift */,
-				02CA01751AF846D9005E32BB /* ViewController.swift */,
 				02CA01771AF846D9005E32BB /* Main.storyboard */,
+				02589A761AFA84D300596A4E /* Client.swift */,
+				02CA01731AF846D9005E32BB /* AppDelegate.swift */,
+				02589A7A1AFA8F3500596A4E /* RootViewController.swift */,
+				02CA01751AF846D9005E32BB /* LoginViewController.swift */,
+				02589A781AFA8C2200596A4E /* SignUpViewController.swift */,
 				02CA017A1AF846D9005E32BB /* Images.xcassets */,
 				02CA017C1AF846D9005E32BB /* LaunchScreen.xib */,
 				02CA01711AF846D9005E32BB /* Supporting Files */,
@@ -151,10 +225,12 @@
 				02CA016C1AF846D9005E32BB /* Resources */,
 				B1C6F0E0310E7C83ABAD0DB5 /* Embed Pods Frameworks */,
 				D63B2AB98CFCC90BF4493E43 /* Copy Pods Resources */,
+				02589A751AFA7FC100596A4E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				02589A741AFA7FC000596A4E /* PBXTargetDependency */,
 			);
 			name = Drops;
 			productName = Drops;
@@ -208,6 +284,12 @@
 			mainGroup = 02CA01651AF846D9005E32BB;
 			productRefGroup = 02CA016F1AF846D9005E32BB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 02589A5E1AFA7FA900596A4E /* Products */;
+					ProjectRef = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				02CA016D1AF846D9005E32BB /* Drops */,
@@ -215,6 +297,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		02589A651AFA7FA900596A4E /* Cartography.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cartography.framework;
+			remoteRef = 02589A641AFA7FA900596A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02589A671AFA7FA900596A4E /* Cartography-iOS-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cartography-iOS-Tests.xctest";
+			remoteRef = 02589A661AFA7FA900596A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02589A691AFA7FA900596A4E /* Cartography.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cartography.framework;
+			remoteRef = 02589A681AFA7FA900596A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02589A6B1AFA7FA900596A4E /* Cartography-Mac-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cartography-Mac-Tests.xctest";
+			remoteRef = 02589A6A1AFA7FA900596A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		02CA016C1AF846D9005E32BB /* Resources */ = {
@@ -289,8 +402,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02CA01761AF846D9005E32BB /* ViewController.swift in Sources */,
+				02589A7B1AFA8F3500596A4E /* RootViewController.swift in Sources */,
+				02CA01761AF846D9005E32BB /* LoginViewController.swift in Sources */,
 				02CA01741AF846D9005E32BB /* AppDelegate.swift in Sources */,
+				02589A791AFA8C2200596A4E /* SignUpViewController.swift in Sources */,
+				02589A771AFA84D300596A4E /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +421,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		02589A741AFA7FC000596A4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cartography-iOS";
+			targetProxy = 02589A731AFA7FC000596A4E /* PBXContainerItemProxy */;
+		};
 		02CA01851AF846D9005E32BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02CA016D1AF846D9005E32BB /* Drops */;

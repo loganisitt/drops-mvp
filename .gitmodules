@@ -1,0 +1,3 @@
+[submodule "iOS/Cartography"]
+	path = iOS/Cartography
+	url = git@github.com:robb/Cartography.git

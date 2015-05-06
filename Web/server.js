@@ -39,7 +39,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // load our routes and pass in our app and fully configured passport
-require('./app/routes.js')(app, passport); 
+require('./app/routes')(app, passport); 
 
 app.listen(port);
 console.log('Magic happens on http://localhost:' + port);
