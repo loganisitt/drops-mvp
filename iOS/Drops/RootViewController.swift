@@ -14,5 +14,6 @@ class RootViewController: UINavigationController {
         super.viewDidLoad()
         
         self.navigationBar.translucent = false
+        self.navigationBar.hideHairline()
     }
 }

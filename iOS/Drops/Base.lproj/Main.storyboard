@@ -20,11 +20,51 @@
                     <navigationItem key="navigationItem" id="l4i-JW-DKF"/>
                     <connections>
                         <segue destination="ZrC-6Y-vJh" kind="show" identifier="gotoSignUp" id="oJV-pD-dbm"/>
+                        <segue destination="2pa-I1-Sq5" kind="show" identifier="gotoDash" id="2qY-7V-9fW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="374" y="237"/>
+        </scene>
+        <!--Dash View Controller-->
+        <scene sceneID="eAd-pm-yVs">
+            <objects>
+                <viewController id="2pa-I1-Sq5" customClass="DashViewController" customModule="Drops" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U5q-WS-Mie"/>
+                        <viewControllerLayoutGuide type="bottom" id="EaZ-Mk-iMi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XUR-VG-lBx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="tJb-pE-MSa" kind="show" identifier="gotoCreate" id="2e4-LH-kpP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syR-Wp-ZJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061" y="237"/>
+        </scene>
+        <!--Create View Controller-->
+        <scene sceneID="wi9-Su-tVu">
+            <objects>
+                <viewController id="tJb-pE-MSa" customClass="CreateViewController" customModule="Drops" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CjO-Ek-S9I"/>
+                        <viewControllerLayoutGuide type="bottom" id="297-kW-qIa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kB3-Wq-J3b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fGs-9Y-fpZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="237"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="RTB-cR-afM">

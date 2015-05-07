@@ -13,7 +13,7 @@ import Cartography
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, ClientDelegate {
     
     var emailField: UITextField!
     var passwordField: UITextField!
@@ -26,6 +26,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Client.sharedInstance.delegate = self
         
         fbLoginBtn = FBSDKLoginButton()
         self.view.addSubview(fbLoginBtn)
@@ -181,5 +183,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             view2.top == view1.bottom + 8
         }
+    }
+    
+    // MARK: - ClientDelegate
+    func signInSuccessful() {
+        println("Sign In Successful!")
+        performSegueWithIdentifier("gotoDash", sender: self)
+    }
+    
+    func signInFailed() {
+        println("Sign In Failed!")        
     }
 }
