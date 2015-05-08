@@ -24,13 +24,9 @@ class CreateViewController: UIViewController {
     // MARK: - Actions
     @IBAction func saveEventBtn() {
         
-        let testEvent: Event = Event()
-        testEvent.adminId = "123"
-        testEvent.locationName = "Park"
-        testEvent.maxAttendees = 20
-        testEvent.type = "Basketball"
-        testEvent.date = NSDate()
+        let eventData = ["adminId": "123", "type": "Park",
+            "date": NSDate(), "locationName": "Park", "maxAttendees": 20]
         
-        Client.sharedInstance.createEvent(testEvent)
+        Client.sharedInstance.createEvent(eventData)
     }
 }

@@ -30,11 +30,21 @@ UITableViewDelegate, UITableViewDataSource {
         
         // Nav Bar
         navigationItem.title = "Dash"
+        navigationItem.hidesBackButton = true
         
-        let addBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addBtnAction"))
+        let attributes = [NSFontAttributeName: UIFont.ioniconOfSize(25)] as Dictionary!
+        
+        let addBtn: UIBarButtonItem = UIBarButtonItem(title: String.ioniconWithName(.Plus), style: .Plain, target: self, action: Selector("addBtnAction"))
+        
+        addBtn.setTitleTextAttributes(attributes, forState: .Normal)
         
         navigationItem.rightBarButtonItem = addBtn
-        navigationItem.hidesBackButton = true
+        
+        let profileBtn: UIBarButtonItem = UIBarButtonItem(title: String.ioniconWithName(.Navicon), style: .Plain, target: self, action: Selector("menuBtnAction"))
+        
+        profileBtn.setTitleTextAttributes(attributes, forState: .Normal)
+        
+        navigationItem.leftBarButtonItem = profileBtn
         
         // iAd
         self.canDisplayBannerAds = true
@@ -80,6 +90,10 @@ UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func addBtnAction() {
         performSegueWithIdentifier("gotoCreate", sender: self)
+    }
+    
+    @IBAction func menuBtnAction() {
+        performSegueWithIdentifier("gotoMenu", sender: self)
     }
     
     // MARK: - Layout

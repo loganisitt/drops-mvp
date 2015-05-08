@@ -9,4 +9,4 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 
-pod 'Argo'
+pod 'ObjectMapper', '~> 0.11'

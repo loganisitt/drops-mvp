@@ -27,6 +27,24 @@
             </objects>
             <point key="canvasLocation" x="374" y="237"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="Z6r-zM-O9w">
+            <objects>
+                <viewController id="ckS-pi-nIr" customClass="MenuViewController" customModule="Drops" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xzR-f1-rPs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gln-Kp-I0a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QiQ-CF-zps">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qgy-fZ-EZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061" y="-457"/>
+        </scene>
         <!--Dash View Controller-->
         <scene sceneID="eAd-pm-yVs">
             <objects>
@@ -42,6 +60,7 @@
                     </view>
                     <connections>
                         <segue destination="tJb-pE-MSa" kind="show" identifier="gotoCreate" id="2e4-LH-kpP"/>
+                        <segue destination="ckS-pi-nIr" kind="custom" identifier="gotoMenu" customClass="BackSegue" customModule="Drops" id="Ywb-0A-Tmo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syR-Wp-ZJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>

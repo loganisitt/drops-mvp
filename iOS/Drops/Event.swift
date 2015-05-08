@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import SwiftyJSON
 
-class Event: NSObject {
+import ObjectMapper
+
+class Event: Mappable {
     
     var adminId: String!
     var type: String!
@@ -17,20 +18,22 @@ class Event: NSObject {
     var locationName: String!
     var maxAttendees: Int!
     
-    override init() {
-        super.init()
-    }
-    
     func toDictionary() -> Dictionary<String, AnyObject> {
         return ["adminId": adminId, "type": type,
             "date": date, "locationName": locationName, "maxAttendees": maxAttendees]
     }
     
-    func fromJSON(json: JSON) {
-        adminId = json["adminId"].string
-        type    = json["type"].string
-//        date            = json["date"].object as! NSDate
-        locationName    = json["locationName"].string
-        maxAttendees    = json["maxAttendees"].int
+    init() {}
+    
+    required init?(_ map: Map) {
+        mapping(map)
+    }
+    
+    func mapping(map: Map) {
+        adminId <- map["adminId"]
+        type    <- map["type"]
+        date    <- map["date"]
+        locationName    <- map["locationName"]
+        maxAttendees    <- map["maxAttendees"]
     }
 }

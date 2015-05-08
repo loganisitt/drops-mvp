@@ -9,7 +9,8 @@
 import UIKit
 
 import Alamofire
-import SwiftyJSON
+
+import ObjectMapper
 
 @objc protocol ClientDelegate {
     
@@ -45,8 +46,8 @@ class Client {
             (_, _, data, error) in
             
             if (data != nil) {
-                var json = JSON(data!)
-                println(json)
+                var user: User = Mapper<User>().map(data)!
+                println(user)
                 self.delegate.signInSuccessful!()
             }
             else {
@@ -67,8 +68,8 @@ class Client {
             (_, _, data, error) in
             
             if (data != nil) {
-                var json = JSON(data!)
-                println(json)
+                var user: User = Mapper<User>().map(data)!
+                println(user)
                 self.delegate.signInSuccessful!()
             }
             else {
@@ -89,8 +90,8 @@ class Client {
             (_, _, data, error) in
             
             if (data != nil) {
-                var json = JSON(data!)
-                println(json)
+                var user: User = Mapper<User>().map(data)!
+                println(user)
                 self.delegate.signInSuccessful!()
             }
             else {
@@ -102,18 +103,16 @@ class Client {
     // MARK: - Event
     
     // Create Event
-    func createEvent(event: Event) {
+    func createEvent(data: Dictionary<String, AnyObject>) {
         
         var url = baseUrl + "/api/event"
-        
-        let parameters = event.toDictionary()
 
-        Alamofire.request(.POST, url, parameters: parameters).responseJSON() {
+        Alamofire.request(.POST, url, parameters: data).responseJSON() {
             (_, _, data, error) in
             
             if (data != nil) {
-                var json = JSON(data!)
-                println(json)
+                var event: Event = Mapper<Event>().map(data)!
+                println(event)
             }
             else {
                 println("Error: \(error)")
@@ -124,20 +123,13 @@ class Client {
     func getAllEvents() {
         
         var url = baseUrl + "/api/event"
-
+        
         Alamofire.request(.GET, url).responseJSON() {
             (_, _, data, error) in
             
             if (data != nil) {
                 
-                var json = JSON(data!).array!
-                var events = [Event]()
-                
-                for j in json {
-                    let e: Event = Event()
-                    e.fromJSON(j)
-                    events.append(e)
-                }
+                var events: [Event] = Mapper<Event>().mapArray(data)!
                 
                 self.delegate.received!(events)
             }

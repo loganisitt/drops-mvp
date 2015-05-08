@@ -22,6 +22,13 @@
 		02CA017B1AF846D9005E32BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CA017A1AF846D9005E32BB /* Images.xcassets */; };
 		02CA017E1AF846D9005E32BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CA017C1AF846D9005E32BB /* LaunchScreen.xib */; };
 		02CA018A1AF846D9005E32BB /* DropsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CA01891AF846D9005E32BB /* DropsTests.swift */; };
+		02F1D6A31AFBE19000C6A3A9 /* Ionicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1D6A21AFBE19000C6A3A9 /* Ionicons.swift */; };
+		02F1D6A51AFBE3E000C6A3A9 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F1D6A41AFBE19A00C6A3A9 /* ionicons.ttf */; };
+		02F1D6A81AFBE51C00C6A3A9 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1D6A71AFBE51C00C6A3A9 /* FontAwesome.swift */; };
+		02F1D6A91AFBE56500C6A3A9 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02F1D6A61AFBE51100C6A3A9 /* FontAwesome.otf */; };
+		02F1D6B11AFC06EF00C6A3A9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1D6B01AFC06EF00C6A3A9 /* User.swift */; };
+		02F1D6B31AFC0CD000C6A3A9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1D6B21AFC0CD000C6A3A9 /* MenuViewController.swift */; };
+		02F1D6B61AFC0E5900C6A3A9 /* BackSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1D6B51AFC0E5900C6A3A9 /* BackSegue.swift */; };
 		175B15E66F2317DA67DFD16D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DDC36283ABD2032C74D7C4 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -104,6 +111,13 @@
 		02CA01881AF846D9005E32BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CA01891AF846D9005E32BB /* DropsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropsTests.swift; sourceTree = "<group>"; };
 		02CA01931AF84BB8005E32BB /* Drops-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drops-Bridging-Header.h"; sourceTree = "<group>"; };
+		02F1D6A21AFBE19000C6A3A9 /* Ionicons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ionicons.swift; sourceTree = "<group>"; };
+		02F1D6A41AFBE19A00C6A3A9 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
+		02F1D6A61AFBE51100C6A3A9 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		02F1D6A71AFBE51C00C6A3A9 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
+		02F1D6B01AFC06EF00C6A3A9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		02F1D6B21AFC0CD000C6A3A9 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		02F1D6B51AFC0E5900C6A3A9 /* BackSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSegue.swift; sourceTree = "<group>"; };
 		104B187EFD0B06606C7156BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		46DDC36283ABD2032C74D7C4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEB0E9C74CA9F11D968EAC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,12 +151,13 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		022B62971AFAFFFC007FB8F0 /* Model */ = {
+		022B62971AFAFFFC007FB8F0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				022B62951AFAFFF8007FB8F0 /* Event.swift */,
+				02F1D6B01AFC06EF00C6A3A9 /* User.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		02589A5E1AFA7FA900596A4E /* Products */ = {
@@ -180,7 +195,9 @@
 		02CA01701AF846D9005E32BB /* Drops */ = {
 			isa = PBXGroup;
 			children = (
-				022B62971AFAFFFC007FB8F0 /* Model */,
+				02F1D6B41AFC0E2D00C6A3A9 /* Segues */,
+				02F1D69E1AFBE17E00C6A3A9 /* Fonts */,
+				022B62971AFAFFFC007FB8F0 /* Models */,
 				022B62911AFAE9EE007FB8F0 /* Extensions */,
 				02CA01771AF846D9005E32BB /* Main.storyboard */,
 				02589A761AFA84D300596A4E /* Client.swift */,
@@ -188,6 +205,7 @@
 				02589A7A1AFA8F3500596A4E /* RootViewController.swift */,
 				02CA01751AF846D9005E32BB /* LoginViewController.swift */,
 				02589A781AFA8C2200596A4E /* SignUpViewController.swift */,
+				02F1D6B21AFC0CD000C6A3A9 /* MenuViewController.swift */,
 				022B62861AFACC9E007FB8F0 /* DashViewController.swift */,
 				022B628C1AFAD138007FB8F0 /* CreateViewController.swift */,
 				02CA017A1AF846D9005E32BB /* Images.xcassets */,
@@ -221,6 +239,25 @@
 				02CA01881AF846D9005E32BB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02F1D69E1AFBE17E00C6A3A9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				02F1D6A61AFBE51100C6A3A9 /* FontAwesome.otf */,
+				02F1D6A71AFBE51C00C6A3A9 /* FontAwesome.swift */,
+				02F1D6A41AFBE19A00C6A3A9 /* ionicons.ttf */,
+				02F1D6A21AFBE19000C6A3A9 /* Ionicons.swift */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		02F1D6B41AFC0E2D00C6A3A9 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				02F1D6B51AFC0E5900C6A3A9 /* BackSegue.swift */,
+			);
+			name = Segues;
 			sourceTree = "<group>";
 		};
 		57195F79A15AF517B73B420B /* Pods */ = {
@@ -363,7 +400,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CA01791AF846D9005E32BB /* Main.storyboard in Resources */,
+				02F1D6A91AFBE56500C6A3A9 /* FontAwesome.otf in Resources */,
 				02CA017E1AF846D9005E32BB /* LaunchScreen.xib in Resources */,
+				02F1D6A51AFBE3E000C6A3A9 /* ionicons.ttf in Resources */,
 				02CA017B1AF846D9005E32BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,9 +474,14 @@
 				022B62931AFAEA24007FB8F0 /* UINavigationBarExtension.swift in Sources */,
 				02CA01761AF846D9005E32BB /* LoginViewController.swift in Sources */,
 				022B628D1AFAD138007FB8F0 /* CreateViewController.swift in Sources */,
+				02F1D6A31AFBE19000C6A3A9 /* Ionicons.swift in Sources */,
 				02CA01741AF846D9005E32BB /* AppDelegate.swift in Sources */,
+				02F1D6B31AFC0CD000C6A3A9 /* MenuViewController.swift in Sources */,
+				02F1D6B61AFC0E5900C6A3A9 /* BackSegue.swift in Sources */,
 				02589A791AFA8C2200596A4E /* SignUpViewController.swift in Sources */,
+				02F1D6B11AFC06EF00C6A3A9 /* User.swift in Sources */,
 				022B62871AFACC9E007FB8F0 /* DashViewController.swift in Sources */,
+				02F1D6A81AFBE51C00C6A3A9 /* FontAwesome.swift in Sources */,
 				02589A771AFA84D300596A4E /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
