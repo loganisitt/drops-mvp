@@ -1,6 +1,8 @@
+var mongoosastic = require('mongoosastic');
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var eventSchema = new mongoose.Schema({
+var Event = new Schema({
   type: String,
   location_name: String,
   location: {},
@@ -13,7 +15,7 @@ var eventSchema = new mongoose.Schema({
 });
 
 // On every save, add the date
-eventSchema.pre('save', function (next) {
+Event.pre('save', function (next) {
   // Get the current date
   var currentDate = new Date();
   
@@ -27,4 +29,23 @@ eventSchema.pre('save', function (next) {
   next();
 });
 
-module.exports = mongoose.model('Event', eventSchema);
+Event.plugin(mongoosastic);
+
+var EventModel = mongoose.model('Event', Event);
+
+/* For Indexing everything */
+
+//var stream = EventModel.synchronize();
+//var count = 0;
+//
+//stream.on('data', function(err, doc) {
+//  count++;
+//});
+//stream.on('close', function() {
+//  console.log('indexed ' + count + ' documents!');
+//});
+//stream.on('error', function(err) {
+//  console.log(err);
+//});
+
+module.exports = EventModel
