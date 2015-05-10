@@ -48,4 +48,4 @@ var EventModel = mongoose.model('Event', Event);
 //  console.log(err);
 //});
 
-module.exports = EventModel
+module.exports = EventModel;
