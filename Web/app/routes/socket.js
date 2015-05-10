@@ -18,6 +18,7 @@ module.exports = function (app, io) {
 	// Initialize a new socket.io application, named 'chat'
 	var chat = io.on('connection', function (socket) {
 
+		console.log("a user connected");
 		// When the client emits the 'load' event, reply with the 
 		// number of people in this chat room
 
@@ -98,6 +99,8 @@ module.exports = function (app, io) {
 
 		// Somebody left the chat
 		socket.on('disconnect', function () {
+			
+			console.log("a user disconnected");
 
 			// Notify the other person in the chat room
 			// that his partner has left

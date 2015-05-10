@@ -2,7 +2,11 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var express  = require('express');
 var path 	 = require('path');
+
 var app = express();
+
+var server = require('http').createServer(app);
+server.listen(port, '192.168.2.8');
 
 var port = process.env.PORT || 8080;
 
