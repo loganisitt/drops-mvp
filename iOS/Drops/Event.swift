@@ -18,10 +18,10 @@ class Event: Mappable {
     var locationName: String!
     var maxAttendees: Int!
     
-    func toDictionary() -> Dictionary<String, AnyObject> {
-        return ["adminId": adminId, "type": type,
-            "date": date, "locationName": locationName, "maxAttendees": maxAttendees]
-    }
+//    func toDictionary() -> Dictionary<String, AnyObject> {
+//        return ["adminId": adminId, "type": type,
+//            "date": date, "locationName": locationName, "maxAttendees": maxAttendees]
+//    }
     
     init() {}
     

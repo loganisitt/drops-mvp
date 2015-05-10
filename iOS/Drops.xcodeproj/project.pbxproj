@@ -16,6 +16,10 @@
 		02589A771AFA84D300596A4E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A761AFA84D300596A4E /* Client.swift */; };
 		02589A791AFA8C2200596A4E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A781AFA8C2200596A4E /* SignUpViewController.swift */; };
 		02589A7B1AFA8F3500596A4E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A7A1AFA8F3500596A4E /* RootViewController.swift */; };
+		0259E06E1AFF98E10074D284 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E06D1AFF98E10074D284 /* InboxViewController.swift */; };
+		0259E0731AFF99070074D284 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E0721AFF99070074D284 /* MessagesViewController.swift */; };
+		0259E07A1AFFB63B0074D284 /* MessageToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E0791AFFB63B0074D284 /* MessageToolbar.swift */; };
+		0259E0801AFFB6FB0074D284 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E07F1AFFB6FB0074D284 /* Message.swift */; };
 		02CA01741AF846D9005E32BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CA01731AF846D9005E32BB /* AppDelegate.swift */; };
 		02CA01761AF846D9005E32BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CA01751AF846D9005E32BB /* LoginViewController.swift */; };
 		02CA01791AF846D9005E32BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CA01771AF846D9005E32BB /* Main.storyboard */; };
@@ -100,6 +104,10 @@
 		02589A761AFA84D300596A4E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		02589A781AFA8C2200596A4E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		02589A7A1AFA8F3500596A4E /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		0259E06D1AFF98E10074D284 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		0259E0721AFF99070074D284 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		0259E0791AFFB63B0074D284 /* MessageToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageToolbar.swift; sourceTree = "<group>"; };
+		0259E07F1AFFB6FB0074D284 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		02CA016E1AF846D9005E32BB /* Drops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02CA01721AF846D9005E32BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CA01731AF846D9005E32BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +164,7 @@
 			children = (
 				022B62951AFAFFF8007FB8F0 /* Event.swift */,
 				02F1D6B01AFC06EF00C6A3A9 /* User.swift */,
+				0259E07F1AFFB6FB0074D284 /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -169,6 +178,14 @@
 				02589A6B1AFA7FA900596A4E /* Cartography-Mac-Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0259E07E1AFFB64B0074D284 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0259E0791AFFB63B0074D284 /* MessageToolbar.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		02CA01651AF846D9005E32BB = {
@@ -198,6 +215,7 @@
 				02F1D6B41AFC0E2D00C6A3A9 /* Segues */,
 				02F1D69E1AFBE17E00C6A3A9 /* Fonts */,
 				022B62971AFAFFFC007FB8F0 /* Models */,
+				0259E07E1AFFB64B0074D284 /* Views */,
 				022B62911AFAE9EE007FB8F0 /* Extensions */,
 				02CA01771AF846D9005E32BB /* Main.storyboard */,
 				02589A761AFA84D300596A4E /* Client.swift */,
@@ -208,6 +226,8 @@
 				02F1D6B21AFC0CD000C6A3A9 /* MenuViewController.swift */,
 				022B62861AFACC9E007FB8F0 /* DashViewController.swift */,
 				022B628C1AFAD138007FB8F0 /* CreateViewController.swift */,
+				0259E06D1AFF98E10074D284 /* InboxViewController.swift */,
+				0259E0721AFF99070074D284 /* MessagesViewController.swift */,
 				02CA017A1AF846D9005E32BB /* Images.xcassets */,
 				02CA017C1AF846D9005E32BB /* LaunchScreen.xib */,
 				02CA01711AF846D9005E32BB /* Supporting Files */,
@@ -472,6 +492,7 @@
 				02589A7B1AFA8F3500596A4E /* RootViewController.swift in Sources */,
 				022B62961AFAFFF8007FB8F0 /* Event.swift in Sources */,
 				022B62931AFAEA24007FB8F0 /* UINavigationBarExtension.swift in Sources */,
+				0259E0801AFFB6FB0074D284 /* Message.swift in Sources */,
 				02CA01761AF846D9005E32BB /* LoginViewController.swift in Sources */,
 				022B628D1AFAD138007FB8F0 /* CreateViewController.swift in Sources */,
 				02F1D6A31AFBE19000C6A3A9 /* Ionicons.swift in Sources */,
@@ -479,9 +500,12 @@
 				02F1D6B31AFC0CD000C6A3A9 /* MenuViewController.swift in Sources */,
 				02F1D6B61AFC0E5900C6A3A9 /* BackSegue.swift in Sources */,
 				02589A791AFA8C2200596A4E /* SignUpViewController.swift in Sources */,
+				0259E07A1AFFB63B0074D284 /* MessageToolbar.swift in Sources */,
+				0259E06E1AFF98E10074D284 /* InboxViewController.swift in Sources */,
 				02F1D6B11AFC06EF00C6A3A9 /* User.swift in Sources */,
 				022B62871AFACC9E007FB8F0 /* DashViewController.swift in Sources */,
 				02F1D6A81AFBE51C00C6A3A9 /* FontAwesome.swift in Sources */,
+				0259E0731AFF99070074D284 /* MessagesViewController.swift in Sources */,
 				02589A771AFA84D300596A4E /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

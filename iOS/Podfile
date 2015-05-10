@@ -10,3 +10,5 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 
 pod 'ObjectMapper', '~> 0.11'
+
+pod 'Socket.IO-Client-Swift'

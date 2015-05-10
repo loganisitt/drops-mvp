@@ -46,12 +46,12 @@ UITableViewDelegate, UITableViewDataSource {
         
         navigationItem.leftBarButtonItem = profileBtn
         
-        // iAd
-        self.canDisplayBannerAds = true
-        
-        ad = ADBannerView(adType: ADAdType.Banner)
-        
-        ad.delegate = self
+//        // iAd
+//        self.canDisplayBannerAds = true
+//        
+//        ad = ADBannerView(adType: ADAdType.Banner)
+//        
+//        ad.delegate = self
         
         // collectionView
         
@@ -78,7 +78,7 @@ UITableViewDelegate, UITableViewDataSource {
         
         view.addSubview(collectionView)
         view.addSubview(tableView)
-        view.addSubview(ad)
+//        view.addSubview(ad)
         
         layoutSubviews()
         
@@ -99,25 +99,25 @@ UITableViewDelegate, UITableViewDataSource {
     // MARK: - Layout
     
     func layoutSubviews() {
-        layout(collectionView, tableView, ad) { view1, view2, view3 in
+        layout(collectionView, tableView) { view1, view2 in
             view1.leading == view1.superview!.leading
             view2.leading == view2.superview!.leading
-            view3.leading == view3.superview!.leading
+//            view3.leading == view3.superview!.leading
             
             view1.trailing == view1.superview!.trailing
             view2.trailing == view2.superview!.trailing
-            view3.trailing == view3.superview!.trailing
+//            view3.trailing == view3.superview!.trailing
             
             view1.top == view1.superview!.top
             //            view2.top == view1.bottom
             
-            view1.height == (view1.superview!.height - 50) / 2
+            view1.height == (view1.superview!.height) / 2
             view2.height == view1.height
             
-            view2.bottom == view3.top
+            view2.bottom == view2.superview!.bottom //view3.top
             
-            view3.bottom == view3.superview!.bottom
-            view3.height == 50
+//            view3.bottom == view3.superview!.bottom
+//            view3.height == 50
         }
     }
     
@@ -172,6 +172,12 @@ UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - UITableViewDelegate
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            performSegueWithIdentifier("gotoInbox", sender: self)
+        }
+    }
+    
     // MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -180,6 +186,10 @@ UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+        
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Inbox"
+        }
         
         return cell
     }

@@ -12,6 +12,8 @@ import Alamofire
 
 import ObjectMapper
 
+import Socket_IO_Client_Swift
+
 @objc protocol ClientDelegate {
     
     // Sign In & Sign Up
@@ -24,14 +26,22 @@ import ObjectMapper
 
 class Client {
     
-    var baseUrl = "http://localhost:8080"
+//    let baseUrl = "http://localhost:8080"
+    let baseUrl = "http://192.168.2.8:8080"
+    
     var delegate: ClientDelegate!
+    
+    var socket: SocketIOClient! //(socketURL: baseUrl)
     
     class var sharedInstance: Client {
         struct Singleton {
             static let instance = Client()
         }
         return Singleton.instance
+    }
+    
+    init() {
+        println("Client Singleton made!")
     }
     
     // MARK: - Authentication
@@ -137,5 +147,45 @@ class Client {
                 println("Error: \(error)")
             }
         }
+    }
+    
+    // MARK: - Socket
+    
+    func connectSocket() {
+        socket = SocketIOClient(socketURL: baseUrl)
+        
+        socket.onAny(socketHandler)
+        
+        socket.connect()
+    }
+    
+    func disconnectSocket() {
+        if socket.connected {
+            socket.disconnect(fast: false)
+        }
+    }
+    
+    func socketHandler(anyEvent: SocketAnyEvent) -> Void {
+        if anyEvent.event == "connect" {
+            println("Event: \(anyEvent.event)")
+            println("\tItems: \(anyEvent.items)")
+            
+            socket.emit("load", 513600)
+        }
+        else if anyEvent.event == "peopleinchat" {
+            println("Event: \(anyEvent.event)")
+            println("\tItems: \(anyEvent.items)")
+            
+            socket.emit("login", ["user":"Sim", "avatar":"laisitt@gmail.com", "id":"513600"])
+        }
+        else {
+            println("Event: \(anyEvent.event)")
+            println("\tItems: \(anyEvent.items)")
+        }
+    }
+    
+    func send(message: Message) {
+        println("Sending: \(message)")
+        socket.emit("msg", ["msg": message.text, "user": "Sim", "img": "asd"])
     }
 }

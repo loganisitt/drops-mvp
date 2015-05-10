@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_ObjectMapper 11
 #define COCOAPODS_VERSION_PATCH_ObjectMapper 0
 
+// Socket.IO-Client-Swift
+#define COCOAPODS_POD_AVAILABLE_Socket_IO_Client_Swift
+#define COCOAPODS_VERSION_MAJOR_Socket_IO_Client_Swift 2
+#define COCOAPODS_VERSION_MINOR_Socket_IO_Client_Swift 2
+#define COCOAPODS_VERSION_PATCH_Socket_IO_Client_Swift 3
+
 // SwiftyJSON
 #define COCOAPODS_POD_AVAILABLE_SwiftyJSON
 #define COCOAPODS_VERSION_MAJOR_SwiftyJSON 2
