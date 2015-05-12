@@ -1,3 +1,5 @@
+var controller = require('../controllers/message');
+var Message = require('../models/message');
 module.exports = function (app, io) {
 
 	app.get('/create', function (req, res) {
@@ -99,7 +101,7 @@ module.exports = function (app, io) {
 
 		// Somebody left the chat
 		socket.on('disconnect', function () {
-			
+
 			console.log("a user disconnected");
 
 			// Notify the other person in the chat room
@@ -119,14 +121,20 @@ module.exports = function (app, io) {
 
 		// Handle the sending of messages
 		socket.on('msg', function (data) {
-			console.log('msg:' + data.msg);
-			console.log('user:' + data.user);
-			console.log('img:' + data.img);
-			console.log('room:' + socket.room);
-			console.log('username:' + socket.username);
 
-			// When the server receives a message, it sends it to the other person in the room.
-			socket.broadcast.to(socket.room).emit('receive', { msg: data.msg, user: data.user, img: data.img });
+			console.log('msg:' + data.text);
+
+			Message.create({
+				text: data.text
+			}, function (err, message) {
+					if (err) {
+						// err
+					}
+					else {
+						// When the server receives a message, it sends it to the other person in the room.
+						socket.broadcast.to(socket.room).emit('receive', message);
+					}
+				});
 		});
 	});
 };

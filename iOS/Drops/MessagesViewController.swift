@@ -15,8 +15,8 @@ class MessageViewController: UIViewController, UITableViewDataSource, UITableVie
     var tableView: UITableView!
     var messagetoolbar: MessageToolbar!
     
-    var mUser: User!
-    var tUser: User!
+    var mUser: User = User()
+    var tUser: User = User()
         {
         willSet(newUser) {
             

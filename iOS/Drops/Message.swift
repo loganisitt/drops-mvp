@@ -19,6 +19,10 @@ class Message: Mappable {
     
     init() {}
     
+    init(info: Dictionary<String, AnyObject>) {
+        println("Converting to Message: \(info)")
+    }
+    
     required init?(_ map: Map) {
         mapping(map)
     }

@@ -5,16 +5,16 @@ var Schema = mongoose.Schema;
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var Message = new Schema({
-  sender: {
-    type: ObjectId,
-    ref: 'User',
-    required: true
-  },
-  recipient: {
-    type: ObjectId,
-    ref: 'User',
-    required: true
-  },
+//  sender: {
+//    type: ObjectId,
+//    ref: 'User',
+//    required: true
+//  },
+//  recipient: {
+//    type: ObjectId,
+//    ref: 'User',
+//    required: true
+//  },
   text: {
     type: String,
     required: true,
