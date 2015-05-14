@@ -170,13 +170,19 @@ class Client {
             println("Event: \(anyEvent.event)")
             println("\tItems: \(anyEvent.items)")
             
-            socket.emit("load", 513600)
+            socket.emit("load", ["a": "a", "b": "b"])
         }
         else if anyEvent.event == "peopleinchat" {
             println("Event: \(anyEvent.event)")
             println("\tItems: \(anyEvent.items)")
             
-            socket.emit("login", ["user":"Sim", "avatar":"laisitt@gmail.com", "id":"513600"])
+            socket.emit("login", ["user":"Sim", "avatar":"laisitt@gmail.com", "id":["a": "a", "b": "b"]])
+        }
+        else if anyEvent.event == "receive" {
+            println("Event: \(anyEvent.event)")
+            println("\tItem: \(anyEvent.items![0])")
+            
+            let message = Mapper<Message>().map(anyEvent.items![0])
         }
         else {
             println("Event: \(anyEvent.event)")
@@ -186,6 +192,10 @@ class Client {
     
     func send(message: Message) {
         println("Sending: \(message)")
-        socket.emit("msg", ["msg": message.text, "user": "Sim", "img": "asd"])
+        
+        let JSONString = Mapper().toJSONString(message, prettyPrint: true)
+        let JSONData = Mapper().toJSON(message)
+        
+        socket.emit("msg", JSONData)
     }
 }

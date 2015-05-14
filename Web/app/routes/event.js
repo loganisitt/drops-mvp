@@ -1,4 +1,3 @@
-var Event = require('../models/event');
 var controller = require('../controllers/event');
 
 module.exports = function (app) {
