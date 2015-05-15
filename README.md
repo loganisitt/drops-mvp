@@ -1,6 +1,23 @@
 # Drops MVP
 ## About
 ###### The goal of this repository is to create a stack that can be moulded into what ever product we wish to create.
+## Server
+###### Prerequisites
+* Install <a href="http://docs.mongodb.org/manual/installation/" target="_blank">MongoDB</a>
+* Install <a href="http://nodejs.org" target="_blank">Node.js</a>
+* Install <a href="https://github.com/elastic/elasticsearch" target="_blank">Elasticsearch</a>
+* Install Bower: `npm install -g bower`
+
+###### Setup
+* Install the npm modules: `npm install`
+* Install the Bower components: `bower install`
+
+###### Development
+* Make sure MongoDB is running: `mongod` or `sudo mongod`
+* Make sure Elasticsearch is running: `bin/elasticsearch` on unix, or `bin\elasticsearch.bat` on windows
+* Run Gulp: `gulp`
+* Visit the application in your browser at `http://localhost:8080`
+
 ## Stack
 #### [AngularJS]
 HTML enhanced for web apps
