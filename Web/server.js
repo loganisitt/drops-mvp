@@ -6,7 +6,7 @@ var path 	 = require('path');
 var app = express();
 
 var server = require('http').createServer(app);
-server.listen(port, '192.168.2.8');
+server.listen(port, 'localhost');
 
 var port = process.env.PORT || 8080;
 

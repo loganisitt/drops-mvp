@@ -27,7 +27,7 @@ import Socket_IO_Client_Swift
 class Client {
     
 //    let baseUrl = "http://localhost:8080"
-    let baseUrl = "http://192.168.2.8:8080"
+    let baseUrl = "http://10.132.104.97:8080"
     
     var delegate: ClientDelegate!
     
@@ -170,13 +170,13 @@ class Client {
             println("Event: \(anyEvent.event)")
             println("\tItems: \(anyEvent.items)")
             
-            socket.emit("load", ["a": "a", "b": "b"])
+            socket.emit("load", ["a": "c", "b": "d"])
         }
         else if anyEvent.event == "peopleinchat" {
             println("Event: \(anyEvent.event)")
             println("\tItems: \(anyEvent.items)")
             
-            socket.emit("login", ["user":"Sim", "avatar":"laisitt@gmail.com", "id":["a": "a", "b": "b"]])
+            socket.emit("login", ["user":"Sim", "avatar":"laisitt@gmail.com", "id":["a": "c", "b": "d"]])
         }
         else if anyEvent.event == "receive" {
             println("Event: \(anyEvent.event)")
