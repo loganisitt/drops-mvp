@@ -6,27 +6,6 @@
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
-
-/*
-
-created_at: Date,
-updated_at: Date,
-userId: String,
-category: String,
-name: {
-type: String,
-es_indexed: true
-},
-description: {
-type: String,
-es_indexed: true
-},
-price: Number,
-bids: [String],
-comments: [String],
-image_paths: [String]
-
-*/
 import UIKit
 
 import ObjectMapper

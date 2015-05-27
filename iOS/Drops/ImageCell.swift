@@ -24,3 +24,4 @@ class ImageCell: UICollectionViewCell {
         self.imageView = UIImageView(frame: self.bounds)
     }
 }
+
