@@ -104,3 +104,8 @@ proguard/
 
 ### Android Patch ###
 gen-external-apklibs
+
+### Web folders
+Web/public/dist
+Web/public/static
+Web/public/.cache

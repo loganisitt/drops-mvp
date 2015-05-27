@@ -21,7 +21,7 @@ UITableViewDelegate, UITableViewDataSource {
     var collectionView: UICollectionView!
     var tableView: UITableView!
     
-    var events: [Event] = [Event]()
+    var listings: [Listing] = [Listing]()
     
     var ad: ADBannerView!
     // MARK: - General
@@ -83,7 +83,7 @@ UITableViewDelegate, UITableViewDataSource {
         layoutSubviews()
         
         Client.sharedInstance.delegate = self
-        Client.sharedInstance.getAllEvents()
+        Client.sharedInstance.getAllListings()
     }
     
     // MARK: - Actions
@@ -131,7 +131,7 @@ UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return events.count
+        return count(listings)
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -195,8 +195,8 @@ UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - ClientDelegate
-    func received(events: [Event]) {
-        self.events = events
+    func received(listings: [Listing]) {
+        self.listings = listings
         
         collectionView.reloadData()
     }

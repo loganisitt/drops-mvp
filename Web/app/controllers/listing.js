@@ -7,7 +7,7 @@ var fs = require('fs-extra');
 var uuid = require('node-uuid');
 
 // GET api/listing/
-module.exports.index = function(req, res) {
+module.exports.all = function(req, res) {
 	Listing.find(function(err, listings) {
 		if (err)
 			res.send(err);

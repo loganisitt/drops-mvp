@@ -26,6 +26,10 @@
 		02CA017B1AF846D9005E32BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CA017A1AF846D9005E32BB /* Images.xcassets */; };
 		02CA017E1AF846D9005E32BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CA017C1AF846D9005E32BB /* LaunchScreen.xib */; };
 		02CA018A1AF846D9005E32BB /* DropsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CA01891AF846D9005E32BB /* DropsTests.swift */; };
+		02E4F1D01B15526F0031AA58 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E4F1CF1B15526F0031AA58 /* Listing.swift */; };
+		02E4F1D51B1556200031AA58 /* NSMutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E4F1D41B1556200031AA58 /* NSMutableDataExtension.swift */; };
+		02E4F1D71B15565F0031AA58 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E4F1D61B15565F0031AA58 /* MobileCoreServices.framework */; };
+		02E4F1D91B1559EE0031AA58 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E4F1D81B1559EE0031AA58 /* ImageCell.swift */; };
 		02F1D6A31AFBE19000C6A3A9 /* Ionicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1D6A21AFBE19000C6A3A9 /* Ionicons.swift */; };
 		02F1D6A51AFBE3E000C6A3A9 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F1D6A41AFBE19A00C6A3A9 /* ionicons.ttf */; };
 		02F1D6A81AFBE51C00C6A3A9 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F1D6A71AFBE51C00C6A3A9 /* FontAwesome.swift */; };
@@ -119,6 +123,10 @@
 		02CA01881AF846D9005E32BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CA01891AF846D9005E32BB /* DropsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropsTests.swift; sourceTree = "<group>"; };
 		02CA01931AF84BB8005E32BB /* Drops-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drops-Bridging-Header.h"; sourceTree = "<group>"; };
+		02E4F1CF1B15526F0031AA58 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		02E4F1D41B1556200031AA58 /* NSMutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableDataExtension.swift; sourceTree = "<group>"; };
+		02E4F1D61B15565F0031AA58 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		02E4F1D81B1559EE0031AA58 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		02F1D6A21AFBE19000C6A3A9 /* Ionicons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ionicons.swift; sourceTree = "<group>"; };
 		02F1D6A41AFBE19A00C6A3A9 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		02F1D6A61AFBE51100C6A3A9 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E4F1D71B15565F0031AA58 /* MobileCoreServices.framework in Frameworks */,
 				175B15E66F2317DA67DFD16D /* Pods.framework in Frameworks */,
 				02589A711AFA7FC000596A4E /* Cartography.framework in Frameworks */,
 			);
@@ -155,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				022B62921AFAEA24007FB8F0 /* UINavigationBarExtension.swift */,
+				02E4F1D41B1556200031AA58 /* NSMutableDataExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -165,6 +175,7 @@
 				022B62951AFAFFF8007FB8F0 /* Event.swift */,
 				02F1D6B01AFC06EF00C6A3A9 /* User.swift */,
 				0259E07F1AFFB6FB0074D284 /* Message.swift */,
+				02E4F1CF1B15526F0031AA58 /* Listing.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -184,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				0259E0791AFFB63B0074D284 /* MessageToolbar.swift */,
+				02E4F1D81B1559EE0031AA58 /* ImageCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -292,6 +304,7 @@
 		C346D3BBBFC5880D07631A05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02E4F1D61B15565F0031AA58 /* MobileCoreServices.framework */,
 				46DDC36283ABD2032C74D7C4 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -494,7 +507,10 @@
 				022B62931AFAEA24007FB8F0 /* UINavigationBarExtension.swift in Sources */,
 				0259E0801AFFB6FB0074D284 /* Message.swift in Sources */,
 				02CA01761AF846D9005E32BB /* LoginViewController.swift in Sources */,
+				02E4F1D91B1559EE0031AA58 /* ImageCell.swift in Sources */,
+				02E4F1D51B1556200031AA58 /* NSMutableDataExtension.swift in Sources */,
 				022B628D1AFAD138007FB8F0 /* CreateViewController.swift in Sources */,
+				02E4F1D01B15526F0031AA58 /* Listing.swift in Sources */,
 				02F1D6A31AFBE19000C6A3A9 /* Ionicons.swift in Sources */,
 				02CA01741AF846D9005E32BB /* AppDelegate.swift in Sources */,
 				02F1D6B31AFC0CD000C6A3A9 /* MenuViewController.swift in Sources */,

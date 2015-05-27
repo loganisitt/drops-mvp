@@ -8,25 +8,304 @@
 
 import UIKit
 
-class CreateViewController: UIViewController {
+class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
     
-    // MARK: - General
+    @IBOutlet var nameField:  UITextField!
+    @IBOutlet var priceField: UITextField!
+    
+    @IBOutlet var categoryField: UIButton!
+    @IBOutlet var addImgBtn:    UIButton!
+    
+    @IBOutlet var descView: UITextView!
+    
+    @IBOutlet var imgCollection: UICollectionView!
+    
+    var imgArray: [UIImage]!
+    var category: Category!
+    
+    // MARK: - View
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        // Nav Bar
-        navigationItem.title = "Create"
+        self.navigationItem.title = "Create"
         
-        let saveBtn: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: Selector("saveEventBtn"))
-        navigationItem.rightBarButtonItem = saveBtn
+        imgArray = []
+        
+        categoryField.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: "resignFirstResponders")
+        singleTap.numberOfTapsRequired = 1
+        view.addGestureRecognizer(singleTap)
+        
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("resignFirstResponders"))
+        downSwipe.direction = UISwipeGestureRecognizerDirection.Down
+        view.addGestureRecognizer(downSwipe)
+        
+//        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        if categoryViewController != nil {
+//            if categoryViewController.selected != nil {
+//                category = categoryViewController.selected
+//                categoryField.backgroundColor = UIColor(rgba: categoryViewController.selected.color)
+//                categoryField.setTitle("\(categoryViewController.selected.category): \(categoryViewController.selected.subcategory)", forState: UIControlState.Normal)
+//            }
+//        }
+    }
+    
+    // MARK: Views
+    
+    func setupViews() {
+        
     }
     
     // MARK: - Actions
-    @IBAction func saveEventBtn() {
+    
+    @IBAction func backButtonPressed() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func showImageSourcePicker() {
         
-        let eventData = ["adminId": "123", "type": "Park",
-            "date": NSDate(), "locationName": "Park", "maxAttendees": 20]
+        var imagePickerController: UIImagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
         
-        Client.sharedInstance.createEvent(eventData)
+        
+        let sourceAlertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action: UIAlertAction!) -> Void in
+            //
+        }
+        
+        sourceAlertController.addAction(cancelAction)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+            //
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+            
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+        }
+        sourceAlertController.addAction(cameraAction)
+        
+        let libraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+            
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+        }
+        sourceAlertController.addAction(libraryAction)
+        
+        self.presentViewController(sourceAlertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+//    @IBAction func showCategoryViewController() {
+//        
+//        if (categoryViewController == nil) {
+//            categoryViewController = CategoryViewController()
+//        }
+//        
+//        let navController = UINavigationController(rootViewController: categoryViewController)
+//        
+//        navController.navigationBar.hideHairline()
+//        navController.navigationBar.translucent = false
+//        navController.navigationBar.barTintColor = UIColor.SSColor.Red
+//        navController.navigationBar.tintColor = UIColor.SSColor.White
+//        navController.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H3!, NSForegroundColorAttributeName: UIColor.SSColor.White]
+//        
+//        self.presentViewController(navController, animated: true, completion: nil)
+//    }
+    
+    @IBAction func resignFirstResponders() {
+        
+        for v in view.subviews {
+            if v.isFirstResponder() {
+                v.resignFirstResponder()
+            }
+        }
+    }
+    
+//    @IBAction func saveListing() {
+//        
+//        if (!nameField.text.isEmpty && !priceField.text.isEmpty && !descView.text.isEmpty && imgArray.count > 0 && categoryViewController.selected != nil) {
+//            var listing: PFObject = PFObject(className: "Listing")
+//            
+//            listing.setValue(nameField.text, forKey: "name")
+//            listing.setValue(category, forKey: "category")
+//            listing.setValue((priceField.text as NSString).doubleValue, forKey: "price")
+//            listing.setValue(descView.text, forKey: "desc")
+//            listing.setValue(PFUser.currentUser(), forKey: "seller")
+//            
+//            var imageFiles: [PFFile] = []
+//            for img in imgArray {
+//                imageFiles.append(PFFile(data: UIImageJPEGRepresentation(img, 0.80)))
+//                
+//                let mbs: Float = Float(NSData(data: UIImageJPEGRepresentation(img, 0.80)).length) / powf(1024, 2)
+//                println("Saving image of \(mbs)MBs")
+//            }
+//            
+//            listing.setValue(imageFiles, forKey: "images")
+//            
+//            PFGeoPoint.geoPointForCurrentLocationInBackground({ (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+//                
+//                listing.setValue(geoPoint, forKey: "location")
+//                
+//                listing.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+//                    
+//                    println("Saved!")
+//                    if (success) {
+//                        self.navigationController?.popViewControllerAnimated(true)
+//                    }
+//                })
+//            })
+//        }
+//        else {
+//            
+//        }
+//    }
+    
+    // MARK: - UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        
+        let tempImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        let size = CGSizeMake(1024, 1024)
+        
+        let scaled: UIImage = RBResizeImage(tempImage, targetSize: size)
+        
+        imgArray.append(scaled)
+        
+        self.imgCollection.reloadData()
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - UICollectionViewDataSource
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imgArray.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+        
+        var cell: ImageCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ImageCell
+        
+        cell.imageView.image = imgArray[indexPath.row]
+        
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: 0, height: 0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 0, height: 0)
+    }
+    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        
+//        var cgImg = imgArray[indexPath.row].og_imageAspectScaledToAtMostHeight(collectionView.bounds.size.height).CGImage
+//        
+//        return CGSize(width: CGFloat(CGImageGetWidth(cgImg) - 10), height: CGFloat(CGImageGetHeight(cgImg) - 10))
+//    }
+    
+    // MARK: - Helper
+    // TODO: Move into Extension
+    func RBResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
+    // MARK: - Saving 
+    
+    @IBAction func done() {
+        
+        let param = [
+            "userID"  : "123123", //Client.sharedInstance.userID as String,
+            "category"    : "Thing", //self.categoryField.text,
+            "name"    : self.nameField.text,
+            "description"    : "#workinprogress",
+            "price" : NSNumber(double: 19.99)]  // build your dictionary however appropriate
+        
+        Client.sharedInstance.createListing(param, imgPaths: saveLocally(imgArray))
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func saveLocally(images: [UIImage]) -> [String] {
+        
+        let fileManager = NSFileManager.defaultManager()
+        
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        
+        var urls = [] as [String]
+        
+        for var i = 0; i < images.count; i++ {
+            
+            var filePathToWrite = "\(paths)/image\(i).png"
+            
+            var imageData = UIImagePNGRepresentation(images[i])
+            
+            NSFileManager.defaultManager().createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+            
+            fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+            
+            var getImagePath = paths.stringByAppendingPathComponent("image\(i).png") as String
+            
+            urls.append(getImagePath)
+        }
+        
+        return urls
     }
 }

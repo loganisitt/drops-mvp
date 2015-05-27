@@ -1,11 +1,11 @@
-var mongoose = require('mongoose')
-var mongoosastic = require('mongoosastic')
-var Schema = mongoose.Schema
+var mongoose = require('mongoose');
+var mongoosastic = require('mongoosastic');
+var Schema = mongoose.Schema;
 
 var Listing = new Schema({
   created_at: Date,
   updated_at: Date,
-  userId: String,
+  user_id: String,
   category: String,
   name: {
     type: String,
@@ -34,7 +34,7 @@ Listing.pre('save', function(next) {
   next();
 });
 
-Listing.plugin(mongoosastic)
+Listing.plugin(mongoosastic);
 
 var ListingModel = mongoose.model('Listing', Listing);
 
@@ -53,4 +53,4 @@ var ListingModel = mongoose.model('Listing', Listing);
 //  console.log(err);
 //});
 
-module.exports = Listing
+module.exports = ListingModel;

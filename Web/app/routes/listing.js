@@ -1,12 +1,13 @@
-'use strict';
+var controller = require('../controllers/listing');
 
-var express = require('express');
-var controller = require('../controllers/ListingController');
-
-var router = express.Router();
-
-router.get('/', controller.index);
-router.post('/', controller.create);
-router.get('/search', controller.search)
-
-module.exports = router;
+module.exports = function (app) {
+	
+    // Returns all of the listings
+    app.get('/api/listing', controller.all);
+    
+    // Create a listing
+    app.post('/api/listing', controller.create);
+	
+    // Search for a listing
+    app.get('/api/listing/search', controller.search);
+};
