@@ -2,13 +2,15 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Alamofire', '~> 1.2'
-pod 'SwiftyJSON', '>= 2.2'
+pod 'Alamofire'
+pod 'SwiftyJSON'
 
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 
-pod 'ObjectMapper', '~> 0.11'
+pod 'HanekeSwift'
+
+pod 'ObjectMapper'
 
 pod 'Socket.IO-Client-Swift'

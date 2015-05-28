@@ -12,21 +12,18 @@ import ObjectMapper
 
 class Listing: Mappable {
     
-//    var createdAt: NSDate!
-//    var updatedAt: NSDate!
-    
-    var userId: String!
+    var createdAt: NSDate!
+    var updatedAt: NSDate!
     
     var name: String!
     var description: String!
-    var category: String!
+    var category: Category!
     var price: Double!
-
-//    var type: String!
-//    
-//    var bids: [String]!
-//    var comments: [String]!
-//    var imagePaths: [String]!
+    
+    var seller: User!
+    
+    var bids: [String]!
+    var imagePaths: [String]!
     
     init() {}
     
@@ -35,20 +32,17 @@ class Listing: Mappable {
     }
     
     func mapping(map: Map) {
-//        createdAt <- map["createdAt"]
-//        updatedAt <- map["updatedAt"]
-//        
-        userId <- map["user_id"]
+        createdAt <- map["createdAt"]
+        updatedAt <- map["updatedAt"]
+
+        seller <- map["seller"]
         
         name        <- map["name"]
         description <- map["description"]
         category    <- map["category"]
         price       <- map["price"]
         
-//        type <- map["type"]
-        
-//        bids        <- map["bids"]
-//        comments    <- map["comments"]
-//        imagePaths  <- map["image_paths"]
+        bids        <- map["bids"]
+        imagePaths  <- map["image_paths"]
     }
 }

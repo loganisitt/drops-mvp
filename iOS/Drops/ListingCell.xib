@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="uGx-xt-3Uf" customClass="ListingCell" customModule="swagswap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-cR-m4j" customClass="PFImageView">
+                        <rect key="frame" x="27" y="8" width="186" height="186"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="aN0-cR-m4j" secondAttribute="height" multiplier="1:1" id="mgt-ls-Bhl"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSH-bm-zlx">
+                        <rect key="frame" x="8" y="202" width="224" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="OSH-bm-zlx" secondAttribute="height" multiplier="112:11" id="0w6-jd-wGc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGJ-WR-b87">
+                        <rect key="frame" x="8" y="224" width="224" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="224" id="W9H-gz-fNo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="OSH-bm-zlx" firstAttribute="leading" secondItem="uGx-xt-3Uf" secondAttribute="leadingMargin" id="0Fo-0M-j6W"/>
+                <constraint firstAttribute="bottomMargin" secondItem="aN0-cR-m4j" secondAttribute="bottom" id="1QY-Uw-JSD"/>
+                <constraint firstAttribute="bottomMargin" secondItem="KGJ-WR-b87" secondAttribute="bottom" constant="-8" id="DMc-Ix-mtF"/>
+                <constraint firstItem="KGJ-WR-b87" firstAttribute="leading" secondItem="uGx-xt-3Uf" secondAttribute="leadingMargin" id="EF4-ta-BLA"/>
+                <constraint firstAttribute="bottomMargin" secondItem="OSH-bm-zlx" secondAttribute="bottom" constant="8" id="Fwh-Cr-zjr"/>
+                <constraint firstAttribute="centerX" secondItem="aN0-cR-m4j" secondAttribute="centerX" id="GNC-2q-fl5"/>
+                <constraint firstItem="aN0-cR-m4j" firstAttribute="top" secondItem="uGx-xt-3Uf" secondAttribute="topMargin" id="Ntn-T2-tMy"/>
+                <constraint firstItem="aN0-cR-m4j" firstAttribute="top" secondItem="uGx-xt-3Uf" secondAttribute="topMargin" id="Tgh-5Z-kXu"/>
+                <constraint firstItem="OSH-bm-zlx" firstAttribute="top" secondItem="aN0-cR-m4j" secondAttribute="bottom" constant="10" id="bhf-xY-wdS"/>
+                <constraint firstItem="OSH-bm-zlx" firstAttribute="trailing" secondItem="uGx-xt-3Uf" secondAttribute="trailingMargin" id="bii-du-ddk"/>
+                <constraint firstItem="KGJ-WR-b87" firstAttribute="top" secondItem="OSH-bm-zlx" secondAttribute="bottom" id="dQl-BP-DgX"/>
+                <constraint firstAttribute="trailingMargin" secondItem="aN0-cR-m4j" secondAttribute="trailing" id="ihd-0E-j6Q"/>
+                <constraint firstItem="KGJ-WR-b87" firstAttribute="trailing" secondItem="uGx-xt-3Uf" secondAttribute="trailingMargin" id="qit-8v-gkH"/>
+                <constraint firstItem="OSH-bm-zlx" firstAttribute="top" secondItem="aN0-cR-m4j" secondAttribute="bottom" constant="8" id="rac-rJ-ISE"/>
+                <constraint firstItem="aN0-cR-m4j" firstAttribute="leading" secondItem="uGx-xt-3Uf" secondAttribute="leadingMargin" id="xSE-zc-8Qu"/>
+            </constraints>
+            <size key="customSize" width="240" height="240"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="xSE-zc-8Qu"/>
+                    <exclude reference="ihd-0E-j6Q"/>
+                    <exclude reference="1QY-Uw-JSD"/>
+                    <exclude reference="Ntn-T2-tMy"/>
+                    <exclude reference="bhf-xY-wdS"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="imageView" destination="aN0-cR-m4j" id="hdJ-dj-gAw"/>
+                <outlet property="priceText" destination="KGJ-WR-b87" id="OWB-Gb-ne7"/>
+                <outlet property="titleText" destination="OSH-bm-zlx" id="X03-JU-efN"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

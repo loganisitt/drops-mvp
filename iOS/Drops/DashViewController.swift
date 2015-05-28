@@ -8,139 +8,164 @@
 
 import UIKit
 
-import iAd
-
 import Cartography
+import Haneke
 
 class DashViewController: UIViewController,
-ADBannerViewDelegate, ClientDelegate,
+ClientDelegate,
 UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,
 UITableViewDelegate, UITableViewDataSource {
     
     // Views
     var collectionView: UICollectionView!
     var tableView: UITableView!
-    
+    var toolbar: UIToolbar!
+    var optionBar: UISegmentedControl!
+
     var listings: [Listing] = [Listing]()
     
-    var ad: ADBannerView!
     // MARK: - General
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Client 
+        Client.sharedInstance.delegate = self
+        Client.sharedInstance.getAllListings()
         
         // Nav Bar
         navigationItem.title = "Dash"
         navigationItem.hidesBackButton = true
         
-        let attributes = [NSFontAttributeName: UIFont.ioniconOfSize(25)] as Dictionary!
+        navigationController?.navigationBar.barTintColor = UIColor.SSColor.Red
         
-        let addBtn: UIBarButtonItem = UIBarButtonItem(title: String.ioniconWithName(.Plus), style: .Plain, target: self, action: Selector("addBtnAction"))
+        var searchBtn = UIBarButtonItem(title: String.fontAwesomeIconWithName(.Search), style: .Done, target: self, action: "searchButtonPressed")
+        searchBtn.setTitleTextAttributes([NSFontAttributeName: UIFont.fontAwesomeOfSize(20)], forState: .Normal)
         
-        addBtn.setTitleTextAttributes(attributes, forState: .Normal)
+        self.navigationItem.rightBarButtonItem  = searchBtn
         
-        navigationItem.rightBarButtonItem = addBtn
+        setupViews()
         
-        let profileBtn: UIBarButtonItem = UIBarButtonItem(title: String.ioniconWithName(.Navicon), style: .Plain, target: self, action: Selector("menuBtnAction"))
-        
-        profileBtn.setTitleTextAttributes(attributes, forState: .Normal)
-        
-        navigationItem.leftBarButtonItem = profileBtn
-        
-//        // iAd
-//        self.canDisplayBannerAds = true
-//        
-//        ad = ADBannerView(adType: ADAdType.Banner)
-//        
-//        ad.delegate = self
+        layoutSubviews()
+    }
+    
+    // MARK: - Views
+    
+    func setupViews() {
         
         // collectionView
-        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .Horizontal
         
-        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
-
         collectionView = UICollectionView(frame: CGRect.zeroRect, collectionViewLayout: layout)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        collectionView.registerNib(UINib(nibName: "ListingCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: "Cell")
+
         collectionView.pagingEnabled = true
         
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.backgroundColor = UIColor.whiteColor()
         
         // tableView
-        tableView = UITableView(frame: CGRect.zeroRect, style: UITableViewStyle.Grouped)
+        tableView = UITableView(frame: .zeroRect, style: .Plain)
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.registerNib(UINib(nibName: "MenuCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "Cell")
         
+        tableView.rowHeight = 60
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        
+        tableView.tableFooterView = UIView(frame: .zeroRect)
+        
+        // optionBar
+        optionBar = UISegmentedControl(items: ["Trending", "Featured", "Suggested"])
+        
+        optionBar.tintColor = UIColor.SSColor.White
+        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: .Normal)
+        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: .Highlighted)
+        
+        // toolbar
+        toolbar = UIToolbar(frame: .zeroRect)
+        
+        toolbar.barTintColor = self.navigationController?.navigationBar.barTintColor
+        toolbar.translucent = false
+        
+        var optionBtn: UIBarButtonItem = UIBarButtonItem(customView: optionBar)
+        var flex: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        
+        toolbar.items = [flex, optionBtn, flex]
+        
+        view.addSubview(toolbar)
         view.addSubview(collectionView)
         view.addSubview(tableView)
-//        view.addSubview(ad)
-        
-        layoutSubviews()
-        
-        Client.sharedInstance.delegate = self
-        Client.sharedInstance.getAllListings()
-    }
-    
-    // MARK: - Actions
-    
-    @IBAction func addBtnAction() {
-        performSegueWithIdentifier("gotoCreate", sender: self)
-    }
-    
-    @IBAction func menuBtnAction() {
-        performSegueWithIdentifier("gotoMenu", sender: self)
     }
     
     // MARK: - Layout
     
     func layoutSubviews() {
-        layout(collectionView, tableView) { view1, view2 in
+        layout(toolbar, collectionView, tableView) { view1, view2, view3 in
+            
             view1.leading == view1.superview!.leading
             view2.leading == view2.superview!.leading
-//            view3.leading == view3.superview!.leading
+            view3.leading == view3.superview!.leading
             
             view1.trailing == view1.superview!.trailing
             view2.trailing == view2.superview!.trailing
-//            view3.trailing == view3.superview!.trailing
+            view3.trailing == view3.superview!.trailing
             
             view1.top == view1.superview!.top
-            //            view2.top == view1.bottom
+            view2.top == view1.bottom
+            view3.top == view2.bottom
             
-            view1.height == (view1.superview!.height) / 2
-            view2.height == view1.height
+            view1.height == 44
+            view2.height == view3.height
             
-            view2.bottom == view2.superview!.bottom //view3.top
-            
-//            view3.bottom == view3.superview!.bottom
-//            view3.height == 50
+            view3.bottom == view3.superview!.bottom //view3.top
         }
     }
     
-    // MARK: - ADBannerViewDelegate
+    // MARK: - Actions
     
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        println("banner: didFailToReceiveAdWithError")
+    @IBAction func searchButtonPressed() {
+        self.performSegueWithIdentifier("gotoSearch", sender: self)
     }
     
-    // MARK: - UICollectionViewDelegate
-    
     // MARK: - UICollectionViewDataSource
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return count(listings)
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! UICollectionViewCell
+        var cell: ListingCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ListingCell
         
-        cell.backgroundColor = UIColor.redColor()
+        let obj = listings[indexPath.row] as Listing
+        
+        var path = obj.imagePaths[0].substringFromIndex(advance(obj.imagePaths[0].startIndex, 8))
+            
+        let url = NSURL(string: Client.sharedInstance.baseUrl + path)!
+        
+        cell.imageView.hnk_setImageFromURL(url)
+        cell.titleText.text = obj.name
+        cell.priceText.text = "$\(obj.price)"
         
         return cell
+    }
+    
+    // MARK: - UICollectionView Delegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("gotoListing", sender: self)
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
@@ -170,34 +195,49 @@ UITableViewDelegate, UITableViewDataSource {
         return CGSizeZero
     }
     
+    
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            performSegueWithIdentifier("gotoInbox", sender: self)
+        switch indexPath.row {
+//        case 0: performSegueWithIdentifier("gotoBuy", sender: self); break
+        case 1: performSegueWithIdentifier("gotoSell", sender: self); break
+//        case 2: performSegueWithIdentifier("gotoWatch", sender: self); break
+//        case 3: performSegueWithIdentifier("gotoInbox", sender: self); break
+//        case 5: performSegueWithIdentifier("gotoAccount", sender: self); break
+        default: break
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    // MARK: - UITableViewDataSource
-    
+    // MARK: - TableView Data Source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 6
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
         
-        if indexPath.row == 0 {
-            cell.textLabel?.text = "Inbox"
-        }
+        var cell: MenuCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! MenuCell
+        
+        cell.menuItem = MenuCell.MenuItem(rawValue: indexPath.row)
         
         return cell
     }
     
     // MARK: - ClientDelegate
-    func received(listings: [Listing]) {
+    func receivedListings(listings: [Listing]) {
         self.listings = listings
         
         collectionView.reloadData()
+    }
+    
+    // MARK: - UIViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoListing" {
+            let vc = segue.destinationViewController as! ListingViewController
+            let index = collectionView.indexPathsForSelectedItems()[0].row
+            vc.listing = listings[index!]
+        }
     }
 }

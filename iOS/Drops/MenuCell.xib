@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="NUV-AE-HRM" customClass="MenuCell" customModule="swagswap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="608" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NUV-AE-HRM" id="ywW-oL-3ev">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb7-l0-SBk">
+                        <rect key="frame" x="63" y="8" width="466" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW7-Dn-1vF">
+                        <rect key="frame" x="537" y="8" width="43" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="IW7-Dn-1vF" secondAttribute="height" multiplier="1:1" id="aRh-B6-jV6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbd-wT-bm3">
+                        <rect key="frame" x="20" y="8" width="43" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Zbd-wT-bm3" secondAttribute="height" multiplier="1:1" id="0BG-KH-5hF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="IW7-Dn-1vF" firstAttribute="top" secondItem="ywW-oL-3ev" secondAttribute="topMargin" id="4Ph-bC-iGT"/>
+                    <constraint firstItem="Zbd-wT-bm3" firstAttribute="top" secondItem="ywW-oL-3ev" secondAttribute="topMargin" id="4pf-Em-fuI"/>
+                    <constraint firstItem="rb7-l0-SBk" firstAttribute="top" secondItem="ywW-oL-3ev" secondAttribute="topMargin" id="C4g-yC-By1"/>
+                    <constraint firstItem="rb7-l0-SBk" firstAttribute="trailing" secondItem="ywW-oL-3ev" secondAttribute="trailingMargin" constant="-70" id="OKb-gW-Vmd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rb7-l0-SBk" secondAttribute="bottom" id="WNe-bO-mkb"/>
+                    <constraint firstItem="rb7-l0-SBk" firstAttribute="leading" secondItem="ywW-oL-3ev" secondAttribute="leadingMargin" constant="62" id="YMS-VE-FQh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IW7-Dn-1vF" secondAttribute="trailing" constant="20" id="ePG-Fd-o9A"/>
+                    <constraint firstItem="rb7-l0-SBk" firstAttribute="leading" secondItem="Zbd-wT-bm3" secondAttribute="trailing" id="k3R-IV-JXw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="IW7-Dn-1vF" secondAttribute="bottom" id="kpD-iN-hmT"/>
+                    <constraint firstItem="Zbd-wT-bm3" firstAttribute="leading" secondItem="ywW-oL-3ev" secondAttribute="leadingMargin" constant="12" id="lzi-71-7mZ"/>
+                    <constraint firstItem="IW7-Dn-1vF" firstAttribute="leading" secondItem="rb7-l0-SBk" secondAttribute="trailing" constant="8" id="pf8-Op-pOr"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Zbd-wT-bm3" secondAttribute="bottom" id="ptd-Tu-aLf"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="OKb-gW-Vmd"/>
+                        <exclude reference="YMS-VE-FQh"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="accessory" destination="IW7-Dn-1vF" id="dJC-gq-7rZ"/>
+                <outlet property="icon" destination="Zbd-wT-bm3" id="xu6-Kf-N0b"/>
+                <outlet property="title" destination="rb7-l0-SBk" id="E68-lr-ej8"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

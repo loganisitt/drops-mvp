@@ -13,7 +13,11 @@ class RootViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationBar.translucent = false
-        self.navigationBar.hideHairline()
+        navigationBar.translucent = false
+        navigationBar.hideHairline()
+        
+        navigationBar.barTintColor = UIColor.SSColor.White
+        navigationBar.tintColor = UIColor.SSColor.White
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H3!, NSForegroundColorAttributeName: UIColor.SSColor.White]
     }
 }

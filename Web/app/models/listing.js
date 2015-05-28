@@ -3,10 +3,19 @@ var mongoosastic = require('mongoosastic');
 var Schema = mongoose.Schema;
 
 var Listing = new Schema({
+  
+  seller: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   created_at: Date,
   updated_at: Date,
-  user_id: String,
-  category: String,
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  },
   name: {
     type: String,
     es_indexed: true
@@ -16,8 +25,10 @@ var Listing = new Schema({
     es_indexed: true
   },
   price: Number,
-  bids: [String],
-  comments: [String],
+  bids: {
+    type: [String],
+    required: false
+  },
   image_paths: [String]
 });
 
@@ -34,7 +45,7 @@ Listing.pre('save', function(next) {
   next();
 });
 
-Listing.plugin(mongoosastic);
+Listing.plugin(mongoosastic, {hydrate:true, hydrateOptions: {lean: true}});
 
 var ListingModel = mongoose.model('Listing', Listing);
 

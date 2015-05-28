@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 import ObjectMapper
@@ -36,4 +37,8 @@ class User: Mappable {
         fbEmail <- map["facebook.email"]
         email   <- map["local.email"]
     }
+}
+
+func == (left: User, right: User) -> Bool {
+    return left.id == right.id
 }

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
 var Listing = require('../models/listing');
+var User = require('../models/listing');
 var formidable = require('formidable');
 var http = require('http');
 var util = require('util');
@@ -8,13 +9,16 @@ var uuid = require('node-uuid');
 
 // GET api/listing/
 module.exports.all = function(req, res) {
-	Listing.find(function(err, listings) {
-		if (err)
-			res.send(err);
 
-		res.status(200);
-		res.json(listings);
-	});
+	Listing.find().populate('seller').populate('category').exec(function(error, listings) {
+   		if (error) {
+			res.send(error);	   
+		}
+		else {
+			res.status(200);
+			res.json(listings);	
+		}
+  	});
 };
 
 // POST api/listing/
@@ -23,8 +27,8 @@ module.exports.create = function(req, res) {
 
 	var d = new Date();
 	var m = d.getUTCMilliseconds() + 1;
-	var n = m
-	var str = n + ''
+	var n = m;
+	var str = n + '';
 
 	while (str.length < 12) {
 		n *= m;
@@ -61,29 +65,18 @@ module.exports.create = function(req, res) {
 					console.log('Success!')
 				}
 			});
-
-			Listing.create({
-				userId: passFields.userID,
+		}
+		
+		var listing = Listing({
+				seller: passFields.seller,
 				category: passFields.category,
 				name: passFields.name,
 				description: passFields.description,
 				price: passFields.price,
 				image_paths: filepaths
-			}, function(err, event) {
-				if (err)
-					res.send(err);
-
-				Listing.find(function(err, listings) {
-					if (err)
-						res.send(err);
-
-					console.log('Listing Success!')
-
-					res.json(listings);
-
-				});
-			});
-		}
+		});
+			
+		listing.save();
 	});
 };
 
@@ -91,7 +84,7 @@ module.exports.create = function(req, res) {
 module.exports.search = function(req, res) {
 
 	console.log(req.query.name);
-
+	
 	Listing.search({
 		query_string: {
 			query: req.query.name

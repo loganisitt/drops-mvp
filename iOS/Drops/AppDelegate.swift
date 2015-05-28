@@ -11,6 +11,10 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
+import Haneke
+
+import ObjectMapper
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKLoginButton.self
         
-        // From FBSDKCoreKit
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 

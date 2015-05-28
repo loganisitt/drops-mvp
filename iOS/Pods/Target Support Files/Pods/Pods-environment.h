@@ -10,7 +10,7 @@
 #define COCOAPODS_POD_AVAILABLE_Alamofire
 #define COCOAPODS_VERSION_MAJOR_Alamofire 1
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
-#define COCOAPODS_VERSION_PATCH_Alamofire 1
+#define COCOAPODS_VERSION_PATCH_Alamofire 2
 
 // Bolts
 #define COCOAPODS_POD_AVAILABLE_Bolts
@@ -60,17 +60,23 @@
 #define COCOAPODS_VERSION_MINOR_FBSDKShareKit 1
 #define COCOAPODS_VERSION_PATCH_FBSDKShareKit 0
 
+// HanekeSwift
+#define COCOAPODS_POD_AVAILABLE_HanekeSwift
+#define COCOAPODS_VERSION_MAJOR_HanekeSwift 0
+#define COCOAPODS_VERSION_MINOR_HanekeSwift 9
+#define COCOAPODS_VERSION_PATCH_HanekeSwift 1
+
 // ObjectMapper
 #define COCOAPODS_POD_AVAILABLE_ObjectMapper
 #define COCOAPODS_VERSION_MAJOR_ObjectMapper 0
-#define COCOAPODS_VERSION_MINOR_ObjectMapper 11
+#define COCOAPODS_VERSION_MINOR_ObjectMapper 12
 #define COCOAPODS_VERSION_PATCH_ObjectMapper 0
 
 // Socket.IO-Client-Swift
 #define COCOAPODS_POD_AVAILABLE_Socket_IO_Client_Swift
 #define COCOAPODS_VERSION_MAJOR_Socket_IO_Client_Swift 2
-#define COCOAPODS_VERSION_MINOR_Socket_IO_Client_Swift 2
-#define COCOAPODS_VERSION_PATCH_Socket_IO_Client_Swift 3
+#define COCOAPODS_VERSION_MINOR_Socket_IO_Client_Swift 3
+#define COCOAPODS_VERSION_PATCH_Socket_IO_Client_Swift 2
 
 // SwiftyJSON
 #define COCOAPODS_POD_AVAILABLE_SwiftyJSON

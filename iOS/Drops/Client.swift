@@ -15,6 +15,8 @@ import ObjectMapper
 
 import Socket_IO_Client_Swift
 
+import SwiftyJSON
+
 @objc protocol ClientDelegate {
     
     // Sign In & Sign Up
@@ -22,7 +24,7 @@ import Socket_IO_Client_Swift
     optional func signInFailed()
     
     // Events
-    optional func received(listings: [Listing])
+    optional func receivedListings(listings: [Listing])
 }
 
 class Client {
@@ -34,6 +36,8 @@ class Client {
     
     var socket: SocketIOClient! //(socketURL: baseUrl)
     
+    var currentUser: User!
+    
     class var sharedInstance: Client {
         struct Singleton {
             static let instance = Client()
@@ -42,7 +46,7 @@ class Client {
     }
     
     init() {
-        println("Client Singleton made!")
+
     }
     
     // MARK: - Authentication
@@ -57,8 +61,8 @@ class Client {
             (_, _, data, error) in
             
             if (data != nil) {
-                var user: User = Mapper<User>().map(data)!
-                println(user)
+                self.currentUser = Mapper<User>().map(data)!
+                println(self.currentUser.name)
                 self.delegate.signInSuccessful!()
             }
             else {
@@ -79,8 +83,7 @@ class Client {
             (_, _, data, error) in
             
             if (data != nil) {
-                var user: User = Mapper<User>().map(data)!
-                println(user)
+                self.currentUser = Mapper<User>().map(data)!
                 self.delegate.signInSuccessful!()
             }
             else {
@@ -113,23 +116,6 @@ class Client {
     
     // MARK: - Listing
     
-//    func createEvent(data: Dictionary<String, AnyObject>) {
-//        
-//        var url = baseUrl + "/api/event"
-//
-//        Alamofire.request(.POST, url, parameters: data).responseJSON() {
-//            (_, _, data, error) in
-//            
-//            if (data != nil) {
-//                var event: Event = Mapper<Event>().map(data)!
-//                println(event)
-//            }
-//            else {
-//                println("Error: \(error)")
-//            }
-//        }
-//    }
-    
     func createListing(packet: Dictionary<String, AnyObject>, imgPaths: [String]) -> Bool{
         
         var urlString = baseUrl + "/api/listing"
@@ -158,13 +144,14 @@ class Client {
             .responseJSON() {
                 (request, res, data, error) in
                 
-//                if (data != nil) {
-//                    var listing: Listing = Mapper<Listing>().map(data)!
-//                    println(listing)
-//                }
-//                else {
-//                    println("Error: \(error)")
-//                }
+                println(data)
+                if (data != nil) {
+                    var listing: Listing = Mapper<Listing>().map(data)!
+                    println(listing.seller.fbToken)
+                }
+                else {
+                    println("Error: \(error)")
+                }
                 
                 // Clean up saved images
                 for path in imgPaths {
@@ -174,6 +161,8 @@ class Client {
                     }
                 }
         }
+        
+        
         return true
     }
     
@@ -186,6 +175,12 @@ class Client {
             (_, _, data, error) in
             
             println(data)
+            
+            var json = JSON(data!)
+
+            var listings: [Listing] = Mapper<Listing>().mapArray(json["hits"]["hits"].arrayObject)!
+
+            self.delegate.receivedListings!(listings)
         }
         return true
     }
@@ -201,7 +196,7 @@ class Client {
                 
                 var listings: [Listing] = Mapper<Listing>().mapArray(data)!
                 
-                self.delegate.received!(listings)
+                self.delegate.receivedListings!(listings)
             }
             else {
                 println("Error: \(error)")
@@ -209,6 +204,29 @@ class Client {
         }
     }
     
+    // MARK: - Category 
+        
+    func getAllCategories(completionHandler: (categories: [Category], error: NSError?) -> ()) {
+        makeCall(completionHandler)
+    }
+    
+    func makeCall(completionHandler: (categories: [Category], error: NSError?) -> ()) {
+        
+        var urlString = baseUrl + "/api/category"
+        
+        Alamofire.request(.GET, urlString).validate().responseJSON { request, response, responseObject, error in
+            
+            if (responseObject != nil) {
+                
+                var categories: [Category] = Mapper<Category>().mapArray(responseObject)!
+                
+                completionHandler(categories: categories, error: error)
+            }
+            else {
+                completionHandler(categories: [], error: error)
+            }
+        }
+    }
     // MARK: - Socket
     
     func connectSocket() {

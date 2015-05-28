@@ -9,6 +9,7 @@
 import UIKit
 
 extension UINavigationBar {
+    
     func hideHairline() {
         if let hairlineView: UIImageView = self.findHairlineImageView(containedIn: self) {
             hairlineView.hidden = true
@@ -25,7 +26,6 @@ extension UINavigationBar {
                 return imageView
             }
         }
-        
         return nil
     }
 }

@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (1.2.1)
+  - Alamofire (1.2.2)
   - Bolts (1.1.5):
     - Bolts/AppLinks (= 1.1.5)
     - Bolts/Tasks (= 1.1.5)
@@ -19,27 +19,30 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.1.0):
     - FBSDKCoreKit
-  - ObjectMapper (0.11)
-  - Socket.IO-Client-Swift (2.2.3)
+  - HanekeSwift (0.9.1)
+  - ObjectMapper (0.12)
+  - Socket.IO-Client-Swift (2.3.2)
   - SwiftyJSON (2.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.2)
+  - Alamofire
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
-  - ObjectMapper (~> 0.11)
+  - HanekeSwift
+  - ObjectMapper
   - Socket.IO-Client-Swift
-  - SwiftyJSON (>= 2.2)
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 1acfdf179aff68b41a48dff70c1ac7fa263e2bcb
+  Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
   FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
   FBSDKShareKit: 8002faf0c564ff3625eadd16e506b0b0fbf3adef
-  ObjectMapper: fc34b29bb04086ed831174a01c8310b507a6ba25
-  Socket.IO-Client-Swift: 0c60746ee15c8bdc1cb01878eb5d60ec97b5a725
+  HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
+  ObjectMapper: ef4a369cbab75546029ceb7e8155772b5f8e8841
+  Socket.IO-Client-Swift: 8b5de9b5042c26e9ae9d8a6b23d108f07319cd60
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
 
 COCOAPODS: 0.37.1

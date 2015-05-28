@@ -10,6 +10,8 @@ import UIKit
 
 class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
     
+    var categoryViewController: CategoryViewController!
+    
     @IBOutlet var nameField:  UITextField!
     @IBOutlet var priceField: UITextField!
     
@@ -40,19 +42,20 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         downSwipe.direction = UISwipeGestureRecognizerDirection.Down
         view.addGestureRecognizer(downSwipe)
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
+        var saveBtn = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonAction")
+        self.navigationItem.rightBarButtonItem  = saveBtn
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-//        if categoryViewController != nil {
-//            if categoryViewController.selected != nil {
-//                category = categoryViewController.selected
-//                categoryField.backgroundColor = UIColor(rgba: categoryViewController.selected.color)
-//                categoryField.setTitle("\(categoryViewController.selected.category): \(categoryViewController.selected.subcategory)", forState: UIControlState.Normal)
-//            }
-//        }
+        if categoryViewController != nil {
+            if categoryViewController.selected != nil {
+                category = categoryViewController.selected
+                categoryField.backgroundColor = UIColor(rgba: categoryViewController.selected.color)
+                categoryField.setTitle("\(categoryViewController.selected.name): \(categoryViewController.selected.subcategory)", forState: UIControlState.Normal)
+            }
+        }
     }
     
     // MARK: Views
@@ -104,22 +107,22 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-//    @IBAction func showCategoryViewController() {
-//        
-//        if (categoryViewController == nil) {
-//            categoryViewController = CategoryViewController()
-//        }
-//        
-//        let navController = UINavigationController(rootViewController: categoryViewController)
-//        
-//        navController.navigationBar.hideHairline()
-//        navController.navigationBar.translucent = false
-//        navController.navigationBar.barTintColor = UIColor.SSColor.Red
-//        navController.navigationBar.tintColor = UIColor.SSColor.White
-//        navController.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H3!, NSForegroundColorAttributeName: UIColor.SSColor.White]
-//        
-//        self.presentViewController(navController, animated: true, completion: nil)
-//    }
+    @IBAction func showCategoryViewController() {
+        
+        if (categoryViewController == nil) {
+            categoryViewController = CategoryViewController()
+        }
+        
+        let navController = UINavigationController(rootViewController: categoryViewController)
+        
+        navController.navigationBar.hideHairline()
+        navController.navigationBar.translucent = false
+        navController.navigationBar.barTintColor = UIColor.SSColor.Red
+        navController.navigationBar.tintColor = UIColor.SSColor.White
+        navController.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H3!, NSForegroundColorAttributeName: UIColor.SSColor.White]
+        
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
     
     @IBAction func resignFirstResponders() {
         
@@ -130,44 +133,22 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-//    @IBAction func saveListing() {
-//        
-//        if (!nameField.text.isEmpty && !priceField.text.isEmpty && !descView.text.isEmpty && imgArray.count > 0 && categoryViewController.selected != nil) {
-//            var listing: PFObject = PFObject(className: "Listing")
-//            
-//            listing.setValue(nameField.text, forKey: "name")
-//            listing.setValue(category, forKey: "category")
-//            listing.setValue((priceField.text as NSString).doubleValue, forKey: "price")
-//            listing.setValue(descView.text, forKey: "desc")
-//            listing.setValue(PFUser.currentUser(), forKey: "seller")
-//            
-//            var imageFiles: [PFFile] = []
-//            for img in imgArray {
-//                imageFiles.append(PFFile(data: UIImageJPEGRepresentation(img, 0.80)))
-//                
-//                let mbs: Float = Float(NSData(data: UIImageJPEGRepresentation(img, 0.80)).length) / powf(1024, 2)
-//                println("Saving image of \(mbs)MBs")
-//            }
-//            
-//            listing.setValue(imageFiles, forKey: "images")
-//            
-//            PFGeoPoint.geoPointForCurrentLocationInBackground({ (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-//                
-//                listing.setValue(geoPoint, forKey: "location")
-//                
-//                listing.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
-//                    
-//                    println("Saved!")
-//                    if (success) {
-//                        self.navigationController?.popViewControllerAnimated(true)
-//                    }
-//                })
-//            })
-//        }
-//        else {
-//            
-//        }
-//    }
+    @IBAction func saveButtonAction() {
+        
+        if (!nameField.text.isEmpty && !priceField.text.isEmpty && !descView.text.isEmpty && imgArray.count > 0 && categoryViewController.selected != nil) {
+            
+            let param = [
+                "seller"  : Client.sharedInstance.currentUser.id,
+                "category"    : category.id,
+                "name"    : self.nameField.text,
+                "description"    : descView.text,
+                "price" : NSNumber(double: (priceField.text as NSString).doubleValue)]
+            
+            Client.sharedInstance.createListing(param, imgPaths: saveLocally(imgArray))
+            
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
     
     // MARK: - UIImagePickerControllerDelegate
     
@@ -177,7 +158,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let size = CGSizeMake(1024, 1024)
         
-        let scaled: UIImage = RBResizeImage(tempImage, targetSize: size)
+        let scaled: UIImage = tempImage.imageResizedtoTargetSize(size)
         
         imgArray.append(scaled)
         
@@ -235,53 +216,11 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
 //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 //        
 //        var cgImg = imgArray[indexPath.row].og_imageAspectScaledToAtMostHeight(collectionView.bounds.size.height).CGImage
-//        
+//
 //        return CGSize(width: CGFloat(CGImageGetWidth(cgImg) - 10), height: CGFloat(CGImageGetHeight(cgImg) - 10))
 //    }
     
-    // MARK: - Helper
-    // TODO: Move into Extension
-    func RBResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        
-        let widthRatio  = targetSize.width  / image.size.width
-        let heightRatio = targetSize.height / image.size.height
-        
-        // Figure out what our orientation is, and use that to form the rectangle
-        var newSize: CGSize
-        if(widthRatio > heightRatio) {
-            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
-        } else {
-            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
-        }
-        
-        // This is the rect that we've calculated out and this is what is actually used below
-        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
-        
-        // Actually do the resizing to the rect using the ImageContext stuff
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.drawInRect(rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }
-    
-    // MARK: - Saving 
-    
-    @IBAction func done() {
-        
-        let param = [
-            "userID"  : "123123", //Client.sharedInstance.userID as String,
-            "category"    : "Thing", //self.categoryField.text,
-            "name"    : self.nameField.text,
-            "description"    : "#workinprogress",
-            "price" : NSNumber(double: 19.99)]  // build your dictionary however appropriate
-        
-        Client.sharedInstance.createListing(param, imgPaths: saveLocally(imgArray))
-        
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+    // MARK: - Saving
     
     func saveLocally(images: [UIImage]) -> [String] {
         
