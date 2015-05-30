@@ -3,7 +3,6 @@ platform :ios, '8.0'
 use_frameworks!
 
 pod 'Alamofire'
-pod 'SwiftyJSON'
 
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
@@ -13,4 +12,8 @@ pod 'HanekeSwift'
 
 pod 'ObjectMapper'
 
+pod 'PureLayout'
+
 pod 'Socket.IO-Client-Swift'
+
+pod 'SwiftyJSON'

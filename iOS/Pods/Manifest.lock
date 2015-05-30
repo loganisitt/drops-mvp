@@ -21,6 +21,7 @@ PODS:
     - FBSDKCoreKit
   - HanekeSwift (0.9.1)
   - ObjectMapper (0.12)
+  - PureLayout (2.0.6)
   - Socket.IO-Client-Swift (2.3.2)
   - SwiftyJSON (2.2.0)
 
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - FBSDKShareKit
   - HanekeSwift
   - ObjectMapper
+  - PureLayout
   - Socket.IO-Client-Swift
   - SwiftyJSON
 
@@ -42,7 +44,8 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 8002faf0c564ff3625eadd16e506b0b0fbf3adef
   HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
   ObjectMapper: ef4a369cbab75546029ceb7e8155772b5f8e8841
+  PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
   Socket.IO-Client-Swift: 8b5de9b5042c26e9ae9d8a6b23d108f07319cd60
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2

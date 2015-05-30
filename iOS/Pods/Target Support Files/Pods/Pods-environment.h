@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_ObjectMapper 12
 #define COCOAPODS_VERSION_PATCH_ObjectMapper 0
 
+// PureLayout
+#define COCOAPODS_POD_AVAILABLE_PureLayout
+#define COCOAPODS_VERSION_MAJOR_PureLayout 2
+#define COCOAPODS_VERSION_MINOR_PureLayout 0
+#define COCOAPODS_VERSION_PATCH_PureLayout 6
+
 // Socket.IO-Client-Swift
 #define COCOAPODS_POD_AVAILABLE_Socket_IO_Client_Swift
 #define COCOAPODS_VERSION_MAJOR_Socket_IO_Client_Swift 2
