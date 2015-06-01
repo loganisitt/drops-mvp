@@ -6,9 +6,9 @@ var path 	 = require('path');
 var app = express();
 
 var server = require('http').createServer(app);
-server.listen(port, '192.168.2.8');
+server.listen(port, '127.0.0.1');
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 var io = require('socket.io').listen(app.listen(port));
 
@@ -24,7 +24,7 @@ app.set('view engine', 'html');
 
 // Initialize the ejs template engine
 app.engine('html', require('ejs').renderFile);
-	
+
 app.use(express.static(__dirname + '/public'));
 
 // Tell express where it can find the templates

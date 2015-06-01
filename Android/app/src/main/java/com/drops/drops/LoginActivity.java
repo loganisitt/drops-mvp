@@ -55,7 +55,27 @@ import java.util.List;
 
 
 /**
- * A login screen that offers login via email/password and via Google+ sign in.
+ * Login Screen
+ *  that offers login via email/password and via Google+/Facebook sign in.
+ *
+ * To remove facebook login:
+ *   - Remove Manifest permissions
+ *   - Remove FB initializations
+ *   - Remove FB button from LoginActivity.java & activity_login.xml
+ *   - Remove onActivityResult()
+ *   OR just hide the login button.
+ *
+ * To remove google+ login:
+ *   - Remove Manifest permissions
+ *   - Remove app info from strings.xml
+ *   - Comment out everything that's not onCreate() or onActivityResult()
+ *   OR just hide the login button.
+ *
+ * To remove both:
+ *  - Remove LoginActivity.java, activity_login.xml
+ *  - Remove manifest permissions and activities associated.
+ *  - Remove app info from strings.xml
+ *  - Remove dependencies from build.gradle
  */
 public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<Cursor> {
 

@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -18,6 +20,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // ******* LOGIN ACTIVITY *******
         signInBtn = (Button)findViewById(R.id.btn_signIn);
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +29,16 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+        // ******* END OF LOGIN ACTIVITY BUTTON *******
+
+        // ******* BASIC LISTVIEW *******
+        String[] items = {"item1", "item2", "item3"};
+        ArrayAdapter<String> itemsAdapter
+                = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+
+        ListView itemLv = (ListView)findViewById(R.id.activity_list);
+        itemLv.setAdapter(itemsAdapter);
+        // ******* END OF BASIC LISTVIEW *******
     }
 
 
