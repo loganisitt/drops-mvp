@@ -9,9 +9,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    // Google Cloud Messaging
+    private GCMClientManager pushClientManager;
+    String PROJECT_NUMBER = "357897084697";
 
     Button signInBtn;
 
@@ -20,6 +25,15 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pushClientManager = new GCMClientManager(this, PROJECT_NUMBER);
+        pushClientManager.registerIfNeeded(new GCMClientManager.RegistrationCompletedHandler() {
+            @Override
+            public void onSuccess(String registrationId, boolean isNewRegistration) {
+                Toast.makeText(MainActivity.this, registrationId, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /*
         // ******* LOGIN ACTIVITY *******
         signInBtn = (Button)findViewById(R.id.btn_signIn);
         signInBtn.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +43,9 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+        */
+
+
         // ******* END OF LOGIN ACTIVITY BUTTON *******
 
         // ******* BASIC LISTVIEW *******
