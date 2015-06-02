@@ -8,11 +8,17 @@
     android:id="@+id/activity_main">
 
     <Button
-        android:id="@+id/btn_signIn"
+        android:id="@+id/btn_Raise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login Screen"
+        android:text="Click to raise notification"
         />
+
+    <Button
+        android:id="@+id/btn_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click to clear notification"/>
 
     <ListView
         android:id="@+id/activity_list"
