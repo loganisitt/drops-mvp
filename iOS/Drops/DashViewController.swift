@@ -38,6 +38,7 @@ UITableViewDelegate, UITableViewDataSource {
         navigationItem.hidesBackButton = true
         
         navigationController?.navigationBar.barTintColor = UIColor.SSColor.Red
+        navigationController?.navigationBar.hidden = false
         
         var searchBtn = UIBarButtonItem(title: String.fontAwesomeIconWithName(.Search), style: .Done, target: self, action: "searchButtonPressed")
         searchBtn.setTitleTextAttributes([NSFontAttributeName: UIFont.fontAwesomeOfSize(20)], forState: .Normal)

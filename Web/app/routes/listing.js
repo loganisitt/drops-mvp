@@ -10,4 +10,7 @@ module.exports = function (app) {
 	
     // Search for a listing
     app.get('/api/listing/search', controller.search);
+
+    // Watch a listing
+    app.get('/api/listing/bid', controller.bid);
 };

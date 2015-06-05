@@ -2,43 +2,20 @@ var mongoose = require('mongoose');
 var mongoosastic = require('mongoosastic');
 var Schema = mongoose.Schema;
 
-var Listing = new Schema({
+var Bid = new Schema({
   
-  seller: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
   created_at: Date,
   updated_at: Date,
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  },
-  name: {
-    type: String,
-    es_indexed: true
-  },
-  description: {
-    type: String,
-    es_indexed: true
-  },
-  price: Number,
-  bids: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Bid',
-    required: false
-  }],
-  watchers: [{
+  offer: Number,
+  bidder: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-  }],
-  image_paths: [String]
+    required: true
+  }
 });
 
 // On every save, add the date
-Listing.pre('save', function(next) {
+Bid.pre('save', function(next) {
   // Get the current date
   var currentDate = new Date();
   // Change the updated_at field to current date
@@ -50,9 +27,9 @@ Listing.pre('save', function(next) {
   next();
 });
 
-Listing.plugin(mongoosastic, {hydrate:true, hydrateOptions: {lean: true}});
+// Listing.plugin(mongoosastic, {hydrate:true, hydrateOptions: {lean: true}});
 
-var ListingModel = mongoose.model('Listing', Listing);
+var BidModel = mongoose.model('Bid', Bid);
 
 /* For Indexing everything */
 
@@ -69,4 +46,4 @@ var ListingModel = mongoose.model('Listing', Listing);
 //  console.log(err);
 //});
 
-module.exports = ListingModel;
+module.exports = BidModel;

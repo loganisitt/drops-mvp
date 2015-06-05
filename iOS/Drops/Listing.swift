@@ -12,6 +12,8 @@ import ObjectMapper
 
 class Listing: Mappable {
     
+    var id: String!
+
     var createdAt: NSDate!
     var updatedAt: NSDate!
     
@@ -32,6 +34,9 @@ class Listing: Mappable {
     }
     
     func mapping(map: Map) {
+
+        id      <- map["_id"]
+
         createdAt <- map["createdAt"]
         updatedAt <- map["updatedAt"]
 

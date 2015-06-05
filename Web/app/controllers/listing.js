@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
 var Listing = require('../models/listing');
+var Bid = require('../models/bid');
 var User = require('../models/listing');
 var formidable = require('formidable');
 var http = require('http');
@@ -92,4 +93,36 @@ module.exports.search = function(req, res) {
 	}, function(err, results) {
 		res.send(results);
 	});
+};
+
+
+
+// GET api/listing/bid
+module.exports.bid = function(req, res) {
+
+	console.log(req.query.offer);
+	console.log(req.query.bidder);
+	Bid.create({
+		offer: req.query.offer,
+		bidder: req.query.bidder
+	}, function(err, bid) {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		}
+		else {
+			console.log(bid);
+			Listing.findByIdAndUpdate(req.query.id, { $push: { bids: bid._id } },
+    		{ safe: true, upsert: true },
+	    	function(err, listing) {
+	    		if (err) {
+	    			res.send(err);
+	    		}
+	    		else {
+	    			res.send(listing);
+	    		}
+	    	}
+        );
+		}
+	});	
 };

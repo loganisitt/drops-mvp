@@ -147,7 +147,6 @@ class Client {
                 println(data)
                 if (data != nil) {
                     var listing: Listing = Mapper<Listing>().map(data)!
-                    println(listing.seller.fbToken)
                 }
                 else {
                     println("Error: \(error)")
@@ -202,6 +201,20 @@ class Client {
                 println("Error: \(error)")
             }
         }
+    }
+    
+    func makeBid() -> Bool {
+        
+        var urlString = baseUrl + "/api/listing/bid"
+        
+        var parameters = ["id": currentUser.id, "offer": NSNumber(double: 29.99), "bidder": currentUser.id]
+        
+        Alamofire.request(.GET, urlString, parameters: parameters).validate().responseJSON() {
+            (_, _, data, error) in
+            
+            println(data)
+        }
+        return true
     }
     
     // MARK: - Category 

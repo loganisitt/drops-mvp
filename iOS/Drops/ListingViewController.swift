@@ -316,12 +316,10 @@ class ListingViewController: UITableViewController {
 //                
 //            })
 //        }
-//        if indexPath.section == 3 && indexPath.row == 0 {
-//
-//            if seller == PFUser.currentUser() {
-//                return
-//            }
-//            
+        if indexPath.section == 3 && indexPath.row == 0 {
+            
+            Client.sharedInstance.makeBid()
+            
 //            let name = seller.valueForKey("name") as? String
 //            let price = listing.valueForKey("price") as! Double
 //            let alertController = UIAlertController(title: "New Offer", message: "Highest bid: $\(price)", preferredStyle: .Alert)
@@ -347,7 +345,7 @@ class ListingViewController: UITableViewController {
 //            alertController.addAction(cancelAction)
 //            
 //            self.presentViewController(alertController, animated: true, completion: nil)
-//        }
+        }
         if indexPath.section == 4 && indexPath.row == 3 {
             
             if listing.seller == Client.sharedInstance.currentUser {
