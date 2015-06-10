@@ -7,22 +7,83 @@
     tools:context=".MainActivity"
     android:id="@+id/activity_main">
 
-    <Button
-        android:id="@+id/btn_Raise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click to raise notification"
-        />
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        sothree:umanoPanelHeight="68dp"
+        sothree:umanoShadowHeight="4dp">
 
-    <Button
-        android:id="@+id/btn_Clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click to clear notification"/>
+        <!-- MAIN CONTENT -->
+        <LinearLayout
+            android:id="@+id/mainSlide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/activity_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ListView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Main Content"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- SLIDING LAYOUT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="false"
+            android:id="@+id/dragView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/menuText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="18sp"
+                    android:gravity="center|top"
+                    android:text="Menu"/>
+
+                <TextView
+                    android:id="@+id/listingText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Listing"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/inboxText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Inbox" />
+
+                <TextView
+                    android:id="@+id/notiText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Notifications" />
+
+                <TextView
+                    android:id="@+id/settingsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Settings" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
 
 </LinearLayout>
