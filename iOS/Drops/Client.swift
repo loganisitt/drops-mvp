@@ -203,11 +203,25 @@ class Client {
         }
     }
     
-    func makeBid() -> Bool {
+    func makeBid(listing: Listing) -> Bool {
         
         var urlString = baseUrl + "/api/listing/bid"
         
         var parameters = ["id": currentUser.id, "offer": NSNumber(double: 29.99), "bidder": currentUser.id]
+        
+        Alamofire.request(.GET, urlString, parameters: parameters).validate().responseJSON() {
+            (_, _, data, error) in
+            
+            println(data)
+        }
+        return true
+    }
+    
+    func watch(listing: Listing) -> Bool {
+        
+        var urlString = baseUrl + "/api/listing/watch"
+        
+        var parameters = ["id": listing.id, "watcher": currentUser.id]
         
         Alamofire.request(.GET, urlString, parameters: parameters).validate().responseJSON() {
             (_, _, data, error) in

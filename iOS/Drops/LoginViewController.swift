@@ -29,10 +29,10 @@ class LoginViewController: UIViewController, ClientDelegate {
         
         Client.sharedInstance.delegate = self
         
-//        if (FBSDKAccessToken.currentAccessToken() != nil) {
-//            // User is already logged in, do work such as go to next view controller.
-//            Client.sharedInstance.signinWithFacebook(FBSDKAccessToken.currentAccessToken().tokenString)
-//        }
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            // User is already logged in, do work such as go to next view controller.
+            Client.sharedInstance.signinWithFacebook(FBSDKAccessToken.currentAccessToken().tokenString)
+        }
         
         navigationController?.navigationBar.hidden = true
         

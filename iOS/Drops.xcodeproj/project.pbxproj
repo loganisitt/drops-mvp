@@ -31,8 +31,6 @@
 		024F136F1B16218D00CC8E30 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F136D1B16218D00CC8E30 /* UINavigationControllerExtension.swift */; };
 		024F13711B1628FB00CC8E30 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F13701B1628FB00CC8E30 /* MenuCell.swift */; };
 		024F13731B16293800CC8E30 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024F13721B16293800CC8E30 /* MenuCell.xib */; };
-		02589A711AFA7FC000596A4E /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02589A651AFA7FA900596A4E /* Cartography.framework */; };
-		02589A721AFA7FC000596A4E /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02589A651AFA7FA900596A4E /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02589A771AFA84D300596A4E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A761AFA84D300596A4E /* Client.swift */; };
 		02589A791AFA8C2200596A4E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A781AFA8C2200596A4E /* SignUpViewController.swift */; };
 		02589A7B1AFA8F3500596A4E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02589A7A1AFA8F3500596A4E /* RootViewController.swift */; };
@@ -64,41 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		02589A641AFA7FA900596A4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54C96A11195063CD000CDD27;
-			remoteInfo = "Cartography-iOS";
-		};
-		02589A661AFA7FA900596A4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54C96A1C195063CD000CDD27;
-			remoteInfo = "Cartography-iOS-Tests";
-		};
-		02589A681AFA7FA900596A4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54F6A838195C20C100313D24;
-			remoteInfo = "Cartography-Mac";
-		};
-		02589A6A1AFA7FA900596A4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54F6A842195C20C200313D24;
-			remoteInfo = "Cartography-Mac-Tests";
-		};
-		02589A731AFA7FC000596A4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 54C96A10195063CD000CDD27;
-			remoteInfo = "Cartography-iOS";
-		};
 		02CA01841AF846D9005E32BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02CA01661AF846D9005E32BB /* Project object */;
@@ -115,7 +78,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				02589A721AFA7FC000596A4E /* Cartography.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,7 +109,6 @@
 		024F136D1B16218D00CC8E30 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		024F13701B1628FB00CC8E30 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		024F13721B16293800CC8E30 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
-		02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
 		02589A761AFA84D300596A4E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		02589A781AFA8C2200596A4E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		02589A7A1AFA8F3500596A4E /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +153,6 @@
 			files = (
 				02E4F1D71B15565F0031AA58 /* MobileCoreServices.framework in Frameworks */,
 				175B15E66F2317DA67DFD16D /* Pods.framework in Frameworks */,
-				02589A711AFA7FC000596A4E /* Cartography.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,17 +221,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		02589A5E1AFA7FA900596A4E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02589A651AFA7FA900596A4E /* Cartography.framework */,
-				02589A671AFA7FA900596A4E /* Cartography-iOS-Tests.xctest */,
-				02589A691AFA7FA900596A4E /* Cartography.framework */,
-				02589A6B1AFA7FA900596A4E /* Cartography-Mac-Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		0259E07E1AFFB64B0074D284 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,7 +244,6 @@
 		02CA01651AF846D9005E32BB = {
 			isa = PBXGroup;
 			children = (
-				02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */,
 				02CA01701AF846D9005E32BB /* Drops */,
 				02CA01861AF846D9005E32BB /* DropsTests */,
 				02CA016F1AF846D9005E32BB /* Products */,
@@ -413,7 +361,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				02589A741AFA7FC000596A4E /* PBXTargetDependency */,
 			);
 			name = Drops;
 			productName = Drops;
@@ -467,12 +414,6 @@
 			mainGroup = 02CA01651AF846D9005E32BB;
 			productRefGroup = 02CA016F1AF846D9005E32BB /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 02589A5E1AFA7FA900596A4E /* Products */;
-					ProjectRef = 02589A5D1AFA7FA900596A4E /* Cartography.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				02CA016D1AF846D9005E32BB /* Drops */,
@@ -480,37 +421,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		02589A651AFA7FA900596A4E /* Cartography.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cartography.framework;
-			remoteRef = 02589A641AFA7FA900596A4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02589A671AFA7FA900596A4E /* Cartography-iOS-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Cartography-iOS-Tests.xctest";
-			remoteRef = 02589A661AFA7FA900596A4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02589A691AFA7FA900596A4E /* Cartography.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cartography.framework;
-			remoteRef = 02589A681AFA7FA900596A4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02589A6B1AFA7FA900596A4E /* Cartography-Mac-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Cartography-Mac-Tests.xctest";
-			remoteRef = 02589A6A1AFA7FA900596A4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		02CA016C1AF846D9005E32BB /* Resources */ = {
@@ -645,11 +555,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		02589A741AFA7FC000596A4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Cartography-iOS";
-			targetProxy = 02589A731AFA7FC000596A4E /* PBXContainerItemProxy */;
-		};
 		02CA01851AF846D9005E32BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02CA016D1AF846D9005E32BB /* Drops */;

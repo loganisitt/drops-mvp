@@ -29,8 +29,6 @@ class ListingViewController: UITableViewController {
         
         navigationItem.title = "Listing"
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
         
@@ -45,8 +43,6 @@ class ListingViewController: UITableViewController {
         tableView.registerNib(UINib(nibName: "ListingDetailCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "LDCell")
         tableView.registerNib(UINib(nibName: "ListingImageCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "LICell")
     }
-    
-    
     
     // MARK: - Actions
     
@@ -301,50 +297,17 @@ class ListingViewController: UITableViewController {
     // MARK: - UITableView Delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if indexPath.section == 2 && indexPath.row == 0 {
-//            
+        if indexPath.section == 2 && indexPath.row == 0 {
+            
+            Client.sharedInstance.watch(listing)
+            
 //            if seller == Client.sharedInstance.currentUser {
 //                return
 //            }
-//            
-//            var watch: PFObject = PFObject(className: "Watch")
-//            
-//            watch.setValue(Client.sharedInstance.currentUser, forKey: "watcher")
-//            watch.setValue(listing, forKey: "listing")
-//            
-//            watch.saveInBackgroundWithBlock({ (success: Bool, error:NSError?) -> Void in
-//                
-//            })
-//        }
+        }
         if indexPath.section == 3 && indexPath.row == 0 {
             
-            Client.sharedInstance.makeBid()
-            
-//            let name = seller.valueForKey("name") as? String
-//            let price = listing.valueForKey("price") as! Double
-//            let alertController = UIAlertController(title: "New Offer", message: "Highest bid: $\(price)", preferredStyle: .Alert)
-//            
-//            let offerAction = UIAlertAction(title: "Make Offer", style: .Default) { (_) in
-//                let offerTextField = alertController.textFields![0] as! UITextField
-//                self.makeOffer(offerTextField.text)
-//            }
-//            offerAction.enabled = false
-//            
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
-//            
-//            alertController.addTextFieldWithConfigurationHandler { (textField) in
-//                textField.placeholder = "Offer..."
-//                textField.keyboardType = UIKeyboardType.DecimalPad
-//                
-//                NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
-//                    offerAction.enabled = textField.text != ""
-//                }
-//            }
-//            
-//            alertController.addAction(offerAction)
-//            alertController.addAction(cancelAction)
-//            
-//            self.presentViewController(alertController, animated: true, completion: nil)
+            Client.sharedInstance.makeBid(listing)
         }
         if indexPath.section == 4 && indexPath.row == 3 {
             

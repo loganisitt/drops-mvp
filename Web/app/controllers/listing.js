@@ -95,23 +95,17 @@ module.exports.search = function(req, res) {
 	});
 };
 
-
-
 // GET api/listing/bid
 module.exports.bid = function(req, res) {
 
-	console.log(req.query.offer);
-	console.log(req.query.bidder);
 	Bid.create({
 		offer: req.query.offer,
 		bidder: req.query.bidder
 	}, function(err, bid) {
 		if (err) {
-			console.log(err);
 			res.send(err);
 		}
 		else {
-			console.log(bid);
 			Listing.findByIdAndUpdate(req.query.id, { $push: { bids: bid._id } },
     		{ safe: true, upsert: true },
 	    	function(err, listing) {
@@ -125,4 +119,19 @@ module.exports.bid = function(req, res) {
         );
 		}
 	});	
+};
+
+// GET api/listing/watch
+module.exports.watch = function(req, res) {
+	Listing.findByIdAndUpdate(req.query.id, { $push: { watchers: req.query.watcher } },
+    		{ safe: true, upsert: true },
+	    	function(err, listing) {
+	    		if (err) {
+	    			res.send(err);
+	    		}
+	    		else {
+	    			res.send(listing);
+	    		}
+	    	}
+        );
 };

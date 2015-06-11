@@ -8,7 +8,7 @@
 
 import UIKit
 
-import Cartography
+import PureLayout
 import Haneke
 
 class DashViewController: UIViewController,
@@ -19,8 +19,8 @@ UITableViewDelegate, UITableViewDataSource {
     // Views
     var collectionView: UICollectionView!
     var tableView: UITableView!
-    var toolbar: UIToolbar!
-    var optionBar: UISegmentedControl!
+//    var toolbar: UIToolbar!
+//    var optionBar: UISegmentedControl!
 
     var listings: [Listing] = [Listing]()
     
@@ -83,25 +83,25 @@ UITableViewDelegate, UITableViewDataSource {
         
         tableView.tableFooterView = UIView(frame: .zeroRect)
         
-        // optionBar
-        optionBar = UISegmentedControl(items: ["Trending", "Featured", "Suggested"])
-        
-        optionBar.tintColor = UIColor.SSColor.White
-        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: .Normal)
-        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: .Highlighted)
-        
-        // toolbar
-        toolbar = UIToolbar(frame: .zeroRect)
-        
-        toolbar.barTintColor = self.navigationController?.navigationBar.barTintColor
-        toolbar.translucent = false
-        
-        var optionBtn: UIBarButtonItem = UIBarButtonItem(customView: optionBar)
-        var flex: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        
-        toolbar.items = [flex, optionBtn, flex]
-        
-        view.addSubview(toolbar)
+//        // optionBar
+//        optionBar = UISegmentedControl(items: ["Trending", "Featured", "Suggested"])
+//        
+//        optionBar.tintColor = UIColor.SSColor.White
+//        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: .Normal)
+//        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: .Highlighted)
+//        
+//        // toolbar
+//        toolbar = UIToolbar(frame: .zeroRect)
+//        
+//        toolbar.barTintColor = self.navigationController?.navigationBar.barTintColor
+//        toolbar.translucent = false
+//        
+//        var optionBtn: UIBarButtonItem = UIBarButtonItem(customView: optionBar)
+//        var flex: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+//        
+//        toolbar.items = [flex, optionBtn, flex]
+//        
+//        view.addSubview(toolbar)
         view.addSubview(collectionView)
         view.addSubview(tableView)
     }
@@ -109,25 +109,16 @@ UITableViewDelegate, UITableViewDataSource {
     // MARK: - Layout
     
     func layoutSubviews() {
-        layout(toolbar, collectionView, tableView) { view1, view2, view3 in
-            
-            view1.leading == view1.superview!.leading
-            view2.leading == view2.superview!.leading
-            view3.leading == view3.superview!.leading
-            
-            view1.trailing == view1.superview!.trailing
-            view2.trailing == view2.superview!.trailing
-            view3.trailing == view3.superview!.trailing
-            
-            view1.top == view1.superview!.top
-            view2.top == view1.bottom
-            view3.top == view2.bottom
-            
-            view1.height == 44
-            view2.height == view3.height
-            
-            view3.bottom == view3.superview!.bottom //view3.top
-        }
+        
+        collectionView.autoPinToTopLayoutGuideOfViewController(self, withInset: 0)
+        collectionView.autoPinEdgeToSuperviewEdge(.Right)
+        collectionView.autoPinEdgeToSuperviewEdge(.Left)
+        collectionView.autoSetDimension(.Height, toSize: view.bounds.height/2.0)
+    
+        tableView.autoPinEdge(.Top, toEdge: .Bottom, ofView: collectionView)
+        tableView.autoPinEdgeToSuperviewEdge(.Right)
+        tableView.autoPinEdgeToSuperviewEdge(.Left)
+        tableView.autoPinToBottomLayoutGuideOfViewController(self, withInset: 0)
     }
     
     // MARK: - Actions
