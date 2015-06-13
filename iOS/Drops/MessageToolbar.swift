@@ -8,8 +8,6 @@
 
 import UIKit
 
-import Cartography
-
 protocol MessageToolbarDelegate: UIToolbarDelegate {
     func sendMessage(content: String)
     func scrollUp()

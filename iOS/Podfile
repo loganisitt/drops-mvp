@@ -8,11 +8,17 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 
+pod 'FontAwesomeKit'
+
 pod 'HanekeSwift'
+
+pod 'MaterialKit'
 
 pod 'ObjectMapper'
 
 pod 'PureLayout'
+
+pod 'SCLAlertView'
 
 pod 'Socket.IO-Client-Swift'
 

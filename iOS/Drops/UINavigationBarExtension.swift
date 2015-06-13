@@ -17,6 +17,7 @@ extension UINavigationBar {
     }
     
     func findHairlineImageView(containedIn view: UIView) -> UIImageView? {
+        
         if view is UIImageView && view.bounds.size.height <= 1.0 {
             return view as? UIImageView
         }
@@ -27,5 +28,24 @@ extension UINavigationBar {
             }
         }
         return nil
+    }
+    
+    func addShadows() {
+        addShadows(toView: self)
+    }
+    
+    func addShadows(toView view: UIView) {
+        
+        if !(view is UIImageView) && !(view.bounds.size.height <= 1.0) {
+            view.layer.cornerRadius = 0
+            view.layer.shadowOpacity = 0.75
+            view.layer.shadowRadius = 0
+            view.layer.shadowColor = UIColor.blackColor().CGColor
+            view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        }
+        
+        for subview in view.subviews {
+            addShadows(toView: subview as! UIView)
+        }
     }
 }

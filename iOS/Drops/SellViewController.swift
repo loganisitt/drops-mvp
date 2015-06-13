@@ -8,6 +8,8 @@
 
 import UIKit
 
+import FontAwesomeKit
+
 class SellViewController: UICollectionViewController {
         
     var listings: [Listing] = [Listing]()
@@ -17,15 +19,13 @@ class SellViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Selling"
+        navigationItem.title = "My Listings"
         
         collectionView?.backgroundColor = UIColor.whiteColor()
         collectionView!.registerNib(UINib(nibName: "ListingCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: "Cell")
-        
-        var addBtn = UIBarButtonItem(title: String.fontAwesomeIconWithName(.Plus), style: .Done, target: self, action: "addButtonPressed")
-        addBtn.setTitleTextAttributes([NSFontAttributeName: UIFont.fontAwesomeOfSize(20)], forState: .Normal)
-        
-        self.navigationItem.rightBarButtonItem  = addBtn
+                
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.backButton(target: self, selector: "backButtonAction")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.addButton(target: self, selector: "addButtonAction")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,11 +34,11 @@ class SellViewController: UICollectionViewController {
     
     // MARK: - Actions
     
-    @IBAction func backButtonPressed() {
+    @IBAction func backButtonAction() {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func addButtonPressed() {
+    @IBAction func addButtonAction() {
         self.performSegueWithIdentifier("gotoCreate", sender: self)
     }
     
@@ -62,9 +62,9 @@ class SellViewController: UICollectionViewController {
         let url = NSURL(string: Client.sharedInstance.baseUrl + path)!
         
         cell.imageView.hnk_setImageFromURL(url)
-        cell.titleText.text = listing.name
-        cell.priceText.text = "$\(listing.price)"
-                
+//        cell.titleText.text = listing.name
+//        cell.priceText.text = "$\(listing.price)"
+        
         return cell
     }
     

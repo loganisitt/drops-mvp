@@ -29,7 +29,8 @@ import SwiftyJSON
 
 class Client {
     
-    let baseUrl = "http://localhost:8080"
+//    let baseUrl = "http://localhost:8080"
+    let baseUrl = "http://192.168.2.8:8080"
 //    let baseUrl = "http://10.132.104.97:8080"
     
     var delegate: ClientDelegate!

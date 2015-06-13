@@ -8,19 +8,23 @@
 
 import UIKit
 
+import MaterialKit
+
 class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
+    
+    let shadowOffset = CGSize(width: -2, height: 2)
     
     var categoryViewController: CategoryViewController!
     
-    @IBOutlet var nameField:  UITextField!
-    @IBOutlet var priceField: UITextField!
+    var nameField: MKTextField!
+    var priceField: MKTextField!
     
-    @IBOutlet var categoryField: UIButton!
-    @IBOutlet var addImgBtn:    UIButton!
+    var categoryField: SNButton!
+    var addImgBtn: SNButton!
     
-    @IBOutlet var descView: UITextView!
+    var descView: UITextView!
     
-    @IBOutlet var imgCollection: UICollectionView!
+    var imgCollection: UICollectionView!
     
     var imgArray: [UIImage]!
     var category: Category!
@@ -32,8 +36,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         imgArray = []
         
-        categoryField.titleLabel?.adjustsFontSizeToFitWidth = true
-        
         let singleTap = UITapGestureRecognizer(target: self, action: "resignFirstResponders")
         singleTap.numberOfTapsRequired = 1
         view.addGestureRecognizer(singleTap)
@@ -42,8 +44,11 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         downSwipe.direction = UISwipeGestureRecognizerDirection.Down
         view.addGestureRecognizer(downSwipe)
         
-        var saveBtn = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: "saveButtonAction")
-        self.navigationItem.rightBarButtonItem  = saveBtn
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.backButton(target: self, selector: "backButtonAction")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.saveButton(target: self, selector: "saveButtonAction")
+        
+        setupViews()
+        layout()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,19 +67,133 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func setupViews() {
         
+        let padding = CGSizeMake(21, 21)
+        
+        nameField = MKTextField()
+        
+        nameField.layer.borderColor = UIColor.clearColor().CGColor
+        nameField.floatingPlaceholderEnabled = true
+        nameField.placeholder = "Name"
+        nameField.rippleLayerColor = UIColor.grayColor()
+        nameField.backgroundColor = UIColor(hex: 0xEEEEEE)
+        nameField.padding = padding
+        nameField.layer.cornerRadius = 0
+        nameField.bottomBorderEnabled = true
+        nameField.bottomBorderHighlightWidth = nameField.bottomBorderWidth
+        nameField.tintColor = nameField.bottomBorderColor
+        
+        priceField = MKTextField()
+        
+        priceField.layer.borderColor = UIColor.clearColor().CGColor
+        priceField.floatingPlaceholderEnabled = true
+        priceField.placeholder = "Price"
+        priceField.rippleLayerColor = UIColor.grayColor()
+        priceField.backgroundColor = UIColor(hex: 0xEEEEEE)
+        priceField.padding = padding
+        priceField.layer.cornerRadius = 0
+        priceField.bottomBorderEnabled = true
+        priceField.bottomBorderHighlightWidth = priceField.bottomBorderWidth
+        priceField.tintColor = priceField.bottomBorderColor
+
+        descView = UITextView()
+        
+        descView.layer.borderColor = UIColor.clearColor().CGColor
+        descView.backgroundColor = UIColor(hex: 0xEEEEEE)
+        descView.layer.cornerRadius = 0
+        descView.tintColor = priceField.bottomBorderColor
+        
+        categoryField = SNButton()
+        categoryField.hasIcon = false
+        categoryField.setTitle("Category", forState: .Normal)
+        categoryField.backgroundColor = UIColor.thrift_blue()
+        categoryField.addTarget(self, action: "showCategoryViewController", forControlEvents: .TouchUpInside)
+        
+        addImgBtn = SNButton()
+        addImgBtn.hasIcon = false
+        addImgBtn.setTitle("Add Photos", forState: .Normal)
+        addImgBtn.backgroundColor = UIColor.thrift_blue()
+        addImgBtn.addTarget(self, action: "showImageSourcePicker", forControlEvents: .TouchUpInside)
+
+        // imgCollection
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .Horizontal
+        
+        imgCollection = UICollectionView(frame: CGRect.zeroRect, collectionViewLayout: layout)
+        
+        imgCollection.delegate = self
+        imgCollection.dataSource = self
+        
+        imgCollection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
+        imgCollection.pagingEnabled = true
+        
+        imgCollection.backgroundColor = UIColor.clearColor()
+        
+        view.addSubview(nameField)
+        view.addSubview(categoryField)
+        view.addSubview(priceField)
+        view.addSubview(descView)
+        view.addSubview(addImgBtn)
+        view.addSubview(imgCollection)
+    }
+    
+    // MARK: - Layout
+    
+    func layout() {
+        
+        nameField.autoPinToTopLayoutGuideOfViewController(self, withInset: 8)
+        nameField.autoPinEdgeToSuperviewEdge(.Left)
+        nameField.autoPinEdgeToSuperviewEdge(.Right)
+        nameField.autoSetDimension(.Height, toSize: 50)
+        
+        priceField.autoPinEdge(.Top, toEdge: .Bottom, ofView: nameField)
+        priceField.autoPinEdgeToSuperviewEdge(.Left)
+        priceField.autoPinEdgeToSuperviewEdge(.Right)
+        priceField.autoSetDimension(.Height, toSize: 50)
+        
+        descView.autoPinEdge(.Top, toEdge: .Bottom, ofView: priceField, withOffset: 8)
+        descView.autoPinEdgeToSuperviewEdge(.Left)
+        descView.autoPinEdgeToSuperviewEdge(.Right)
+        
+        categoryField.autoPinEdge(.Top, toEdge: .Bottom, ofView: descView, withOffset: 8)
+        categoryField.autoPinEdgeToSuperviewEdge(.Left)
+        categoryField.autoPinEdgeToSuperviewEdge(.Right)
+        categoryField.autoSetDimension(.Height, toSize: 50)
+        
+        addImgBtn.autoPinEdge(.Top, toEdge: .Bottom, ofView: categoryField, withOffset: 8)
+        addImgBtn.autoPinEdgeToSuperviewEdge(.Left)
+        addImgBtn.autoPinEdgeToSuperviewEdge(.Right)
+        addImgBtn.autoSetDimension(.Height, toSize: 50)
+        
+        imgCollection.autoPinEdge(.Top, toEdge: .Bottom, ofView: addImgBtn, withOffset: 8)
+        imgCollection.autoPinEdgeToSuperviewEdge(.Left)
+        imgCollection.autoPinEdgeToSuperviewEdge(.Right)
+        imgCollection.autoPinToBottomLayoutGuideOfViewController(self, withInset: 8)
+        
+        descView.autoMatchDimension(.Height, toDimension: .Height, ofView: imgCollection)
     }
     
     // MARK: - Actions
     
-    @IBAction func backButtonPressed() {
+    func backButtonAction() {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func showImageSourcePicker() {
+    func dismissButtonAction() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func showImageSourcePicker() {
         
         var imagePickerController: UIImagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
+        imagePickerController.navigationBar.hideHairline()
+        imagePickerController.navigationBar.addShadows()
+        imagePickerController.navigationBar.translucent = false
+        imagePickerController.navigationBar.barTintColor = navigationController?.navigationBar.barTintColor
+        imagePickerController.navigationBar.tintColor = navigationController?.navigationBar.tintColor
+        imagePickerController.navigationBar.titleTextAttributes = navigationController?.navigationBar.titleTextAttributes
         
         let sourceAlertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
@@ -103,11 +222,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.presentViewController(sourceAlertController, animated: true, completion: nil)
     }
     
-    @IBAction func cancel() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    @IBAction func showCategoryViewController() {
+    func showCategoryViewController() {
         
         if (categoryViewController == nil) {
             categoryViewController = CategoryViewController()
@@ -116,10 +231,11 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         let navController = UINavigationController(rootViewController: categoryViewController)
         
         navController.navigationBar.hideHairline()
+        navController.navigationBar.addShadows()
         navController.navigationBar.translucent = false
-        navController.navigationBar.barTintColor = UIColor.SSColor.Red
-        navController.navigationBar.tintColor = UIColor.SSColor.White
-        navController.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H3!, NSForegroundColorAttributeName: UIColor.SSColor.White]
+        navController.navigationBar.barTintColor = navigationController?.navigationBar.barTintColor
+        navController.navigationBar.tintColor = navigationController?.navigationBar.tintColor
+        navController.navigationBar.titleTextAttributes = navigationController?.navigationBar.titleTextAttributes
         
         self.presentViewController(navController, animated: true, completion: nil)
     }
@@ -162,13 +278,12 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         imgArray.append(scaled)
         
-        self.imgCollection.reloadData()
+        imgCollection.reloadData()
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -179,14 +294,26 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imgArray.count
+        return count(imgArray)
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         
-        var cell: ImageCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ImageCell
+        var cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! UICollectionViewCell
         
-        cell.imageView.image = imgArray[indexPath.row]
+        cell.backgroundView = MKImageView()
+        
+        (cell.backgroundView as! MKImageView).rippleLayerColor = UIColor.grayColor()
+        
+        (cell.backgroundView as! MKImageView).layer.cornerRadius = 0
+        (cell.backgroundView as! MKImageView).layer.shadowOpacity = 0.55
+        (cell.backgroundView as! MKImageView).layer.shadowRadius = 0
+        (cell.backgroundView as! MKImageView).layer.shadowColor = UIColor.blackColor().CGColor
+        (cell.backgroundView as! MKImageView).layer.shadowOffset = shadowOffset
+
+        
+        cell.backgroundView?.autoPinEdgesToSuperviewMargins()
+        (cell.backgroundView as! MKImageView).image = imgArray[indexPath.row]
         
         return cell
     }
@@ -194,31 +321,31 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        return UIEdgeInsetsZero
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 5
+        return 0
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 5
+        return 0
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 0)
+        return CGSize.zeroSize
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 0)
+        return CGSize.zeroSize
     }
     
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        
-//        var cgImg = imgArray[indexPath.row].og_imageAspectScaledToAtMostHeight(collectionView.bounds.size.height).CGImage
-//
-//        return CGSize(width: CGFloat(CGImageGetWidth(cgImg) - 10), height: CGFloat(CGImageGetHeight(cgImg) - 10))
-//    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        var img = imgArray[indexPath.row].imageResizedtoTargetSize(CGSize(width: imgCollection.bounds.height, height: imgCollection.bounds.height))
+
+        return CGSize(width: CGImageGetWidth(img.CGImage), height: CGImageGetHeight(img.CGImage))
+    }
     
     // MARK: - Saving
     
@@ -244,7 +371,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             urls.append(getImagePath)
         }
-        
         return urls
     }
 }

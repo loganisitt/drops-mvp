@@ -44,7 +44,7 @@ class BrowseViewController: UICollectionViewController {
         
         self.navigationItem.title = "Browse"
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonAction", target: self)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -53,7 +53,7 @@ class BrowseViewController: UICollectionViewController {
     
     // MARK: - Actions
     
-    @IBAction func backButtonPressed() {
+    @IBAction func backButtonAction() {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -77,8 +77,8 @@ class BrowseViewController: UICollectionViewController {
         let url = NSURL(string: Client.sharedInstance.baseUrl + path)!
         
         cell.imageView.hnk_setImageFromURL(url)
-        cell.titleText.text = listing.name
-        cell.priceText.text = "$\(listing.price)"
+//        cell.titleText.text = listing.name
+//        cell.priceText.text = "$\(listing.price)"
         
 
         return cell

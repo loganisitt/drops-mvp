@@ -60,11 +60,53 @@
 #define COCOAPODS_VERSION_MINOR_FBSDKShareKit 1
 #define COCOAPODS_VERSION_PATCH_FBSDKShareKit 0
 
+// FontAwesomeKit
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit 2
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit 0
+
+// FontAwesomeKit/Core
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit_Core
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_Core 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit_Core 2
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit_Core 0
+
+// FontAwesomeKit/FontAwesome
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit_FontAwesome
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_FontAwesome 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit_FontAwesome 2
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit_FontAwesome 0
+
+// FontAwesomeKit/FoundationIcons
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit_FoundationIcons
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_FoundationIcons 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit_FoundationIcons 2
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit_FoundationIcons 0
+
+// FontAwesomeKit/IonIcons
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit_IonIcons
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_IonIcons 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit_IonIcons 2
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit_IonIcons 0
+
+// FontAwesomeKit/Zocial
+#define COCOAPODS_POD_AVAILABLE_FontAwesomeKit_Zocial
+#define COCOAPODS_VERSION_MAJOR_FontAwesomeKit_Zocial 2
+#define COCOAPODS_VERSION_MINOR_FontAwesomeKit_Zocial 2
+#define COCOAPODS_VERSION_PATCH_FontAwesomeKit_Zocial 0
+
 // HanekeSwift
 #define COCOAPODS_POD_AVAILABLE_HanekeSwift
 #define COCOAPODS_VERSION_MAJOR_HanekeSwift 0
 #define COCOAPODS_VERSION_MINOR_HanekeSwift 9
 #define COCOAPODS_VERSION_PATCH_HanekeSwift 1
+
+// MaterialKit
+#define COCOAPODS_POD_AVAILABLE_MaterialKit
+#define COCOAPODS_VERSION_MAJOR_MaterialKit 0
+#define COCOAPODS_VERSION_MINOR_MaterialKit 3
+#define COCOAPODS_VERSION_PATCH_MaterialKit 5
 
 // ObjectMapper
 #define COCOAPODS_POD_AVAILABLE_ObjectMapper
@@ -77,6 +119,12 @@
 #define COCOAPODS_VERSION_MAJOR_PureLayout 2
 #define COCOAPODS_VERSION_MINOR_PureLayout 0
 #define COCOAPODS_VERSION_PATCH_PureLayout 6
+
+// SCLAlertView
+#define COCOAPODS_POD_AVAILABLE_SCLAlertView
+#define COCOAPODS_VERSION_MAJOR_SCLAlertView 0
+#define COCOAPODS_VERSION_MINOR_SCLAlertView 3
+#define COCOAPODS_VERSION_PATCH_SCLAlertView 1
 
 // Socket.IO-Client-Swift
 #define COCOAPODS_POD_AVAILABLE_Socket_IO_Client_Swift

@@ -42,7 +42,7 @@ class MenuCell: UITableViewCell {
         indentationLevel = 1
         
         indentationLayer = CALayer()
-        indentationLayer.backgroundColor = UIColor.SSColor.Blue.CGColor
+        indentationLayer.backgroundColor = UIColor.thrift_blue().CGColor
         layer.addSublayer(indentationLayer)
     }
     
@@ -54,17 +54,17 @@ class MenuCell: UITableViewCell {
         }
         
         title.text = getTitle(menuItem).uppercaseString
-        title.textColor = UIColor.SSColor.Black
+        title.textColor = UIColor.blackColor()
         title.textAlignment = NSTextAlignment.Left
         title.font = UIFont.SSFont.H3
         
         accessory.text = String.fontAwesomeIconWithName(.AngleRight)
-        accessory.textColor = UIColor.SSColor.Black
+        accessory.textColor = UIColor.blackColor()
         accessory.textAlignment = NSTextAlignment.Right
         accessory.font = UIFont.fontAwesomeOfSize(30)
         
         icon.text = getIcon(menuItem)
-        icon.textColor = UIColor.SSColor.Black
+        icon.textColor = UIColor.blackColor()
         icon.textAlignment = NSTextAlignment.Center
         icon.font = UIFont.fontAwesomeOfSize(30)
         
@@ -98,13 +98,13 @@ class MenuCell: UITableViewCell {
     
     private func getColor(mi: MenuItem) -> UIColor {
         switch mi {
-        case .Buy:          return UIColor.SSColor.Yellow
-        case .Sell:         return UIColor.SSColor.Red
-        case .Watch:        return UIColor.SSColor.LightBlue
-        case .Inbox:        return UIColor.SSColor.Blue
-        case .Notification: return UIColor.SSColor.Aqua
-        case .Account:      return UIColor.SSColor.Black
-        default:            return UIColor.SSColor.Black
+        case .Buy:          return UIColor.thrift_yellow()
+        case .Sell:         return UIColor.thrift_red()
+        case .Watch:        return UIColor.thrift_light_blue()
+        case .Inbox:        return UIColor.thrift_blue()
+        case .Notification: return UIColor.thrift_light_blue()
+        case .Account:      return UIColor.blackColor()
+        default:            return UIColor.blackColor()
         }
     }
     

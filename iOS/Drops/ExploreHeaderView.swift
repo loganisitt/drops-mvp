@@ -63,7 +63,7 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
         addSubview(accessory)
         
         indentationLayer = CALayer()
-        indentationLayer.backgroundColor = UIColor.SSColor.Blue.CGColor
+        indentationLayer.backgroundColor = UIColor.thrift_blue().CGColor
         layer.addSublayer(indentationLayer)
         
         isExpanded = false
@@ -87,16 +87,16 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
         title.frame = CGRectMake(CGRectGetMaxX(icon.frame) + 8, 0, tWidth, size.height)
         
         title.text = titleText
-        title.textColor = UIColor.SSColor.Black
+        title.textColor = UIColor.blackColor()
         title.textAlignment = NSTextAlignment.Left
         title.font = UIFont.SSFont.H3
         
-        accessory.textColor = UIColor.SSColor.Black
+        accessory.textColor = UIColor.blackColor()
         accessory.textAlignment = NSTextAlignment.Center
         accessory.font = UIFont.fontAwesomeOfSize(30)
         
         icon.text = String.fontAwesomeIconWithName(iconName)
-        icon.textColor = UIColor.SSColor.Black
+        icon.textColor = UIColor.blackColor()
         icon.textAlignment = NSTextAlignment.Center
         icon.font = UIFont.fontAwesomeOfSize(30)
         

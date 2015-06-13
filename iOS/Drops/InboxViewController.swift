@@ -15,9 +15,17 @@ class InboxViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Inbox"
         
-        // tableView
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.backButton(target: self, selector: "backButtonAction")
+
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+    
+    // MARK: - Actions
+    
+    func backButtonAction() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: - UITableViewDelegate

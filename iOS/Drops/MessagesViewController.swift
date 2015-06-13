@@ -8,8 +8,6 @@
 
 import UIKit
 
-import Cartography
-
 class MessageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MessageToolbarDelegate {
     
     var tableView: UITableView!
@@ -29,14 +27,14 @@ class MessageViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var messages = [Message]()
     
-    var group: ConstraintGroup!
+    var bottomConstraint: NSLayoutConstraint!
     
     // MARK: - General
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.backButton(target: self, selector: "backButtonAction")
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: Selector("receivedMessage:"), name:"SSMessageReceivedNotification", object: nil)
@@ -76,7 +74,7 @@ class MessageViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - Actions
     
-    @IBAction func backButtonPressed() {
+    @IBAction func backButtonAction() {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -176,23 +174,15 @@ class MessageViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func layoutSubviews() {
         
-        layout(tableView, messagetoolbar) { view1, view2 in
-            view1.leading == view1.superview!.leading
-            view2.leading == view2.superview!.leading
-            
-            view1.trailing == view1.superview!.trailing
-            view2.trailing == view2.superview!.trailing
-            
-            view1.top == view1.superview!.top
-            
-            view1.bottom == view2.top
-            
-            view2.height == 44
-        }
+        tableView.autoPinToTopLayoutGuideOfViewController(self, withInset: 0)
+        tableView.autoPinEdgeToSuperviewEdge(.Left)
+        tableView.autoPinEdgeToSuperviewEdge(.Right)
         
-        group = layout(messagetoolbar) {view in
-            view.bottom == view.superview!.bottom
-        }
+        messagetoolbar.autoPinEdge(.Top, toEdge: .Bottom, ofView: tableView)
+        messagetoolbar.autoPinEdgeToSuperviewEdge(.Left)
+        messagetoolbar.autoPinEdgeToSuperviewEdge(.Right)
+        bottomConstraint = messagetoolbar.autoPinToBottomLayoutGuideOfViewController(self, withInset: 0)
+        messagetoolbar.autoSetDimension(.Height, toSize: 44)
     }
     
     // MARK: - Keyboard
@@ -207,9 +197,7 @@ class MessageViewController: UIViewController, UITableViewDataSource, UITableVie
         let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
         let animationCurve = UIViewAnimationOptions.init(UInt(rawAnimationCurve))
         
-        constrain(messagetoolbar, replace: group) { view1 in
-            view1.bottom == view1.superview!.bottom - keyboardEndFrame.height
-        }
+        bottomConstraint.constant = 0 - keyboardEndFrame.height
         
         UIView.animateWithDuration(animationDuration, delay: 0.0, options: .BeginFromCurrentState | animationCurve, animations: {
             self.view.layoutIfNeeded()
@@ -226,9 +214,7 @@ class MessageViewController: UIViewController, UITableViewDataSource, UITableVie
         let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
         let animationCurve = UIViewAnimationOptions.init(UInt(rawAnimationCurve))
         
-        constrain(messagetoolbar, replace: group) { view1 in
-            view1.bottom == view1.superview!.bottom
-        }
+        bottomConstraint.constant = 0
         
         UIView.animateWithDuration(animationDuration, delay: 0.0, options: .BeginFromCurrentState | animationCurve, animations: {
             self.view.layoutIfNeeded()

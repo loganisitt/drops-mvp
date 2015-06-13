@@ -19,9 +19,26 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.1.0):
     - FBSDKCoreKit
+  - FontAwesomeKit (2.2.0):
+    - FontAwesomeKit/Core (= 2.2.0)
+    - FontAwesomeKit/FontAwesome (= 2.2.0)
+    - FontAwesomeKit/FoundationIcons (= 2.2.0)
+    - FontAwesomeKit/IonIcons (= 2.2.0)
+    - FontAwesomeKit/Zocial (= 2.2.0)
+  - FontAwesomeKit/Core (2.2.0)
+  - FontAwesomeKit/FontAwesome (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.2.0):
+    - FontAwesomeKit/Core
   - HanekeSwift (0.9.1)
+  - MaterialKit (0.3.5)
   - ObjectMapper (0.12)
   - PureLayout (2.0.6)
+  - SCLAlertView (0.3.1)
   - Socket.IO-Client-Swift (2.3.2)
   - SwiftyJSON (2.2.0)
 
@@ -30,9 +47,12 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - FontAwesomeKit
   - HanekeSwift
+  - MaterialKit
   - ObjectMapper
   - PureLayout
+  - SCLAlertView
   - Socket.IO-Client-Swift
   - SwiftyJSON
 
@@ -42,9 +62,12 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
   FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
   FBSDKShareKit: 8002faf0c564ff3625eadd16e506b0b0fbf3adef
+  FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
+  MaterialKit: 6f1e9382f89593df768bc0c31ded9952a6d8ad46
   ObjectMapper: ef4a369cbab75546029ceb7e8155772b5f8e8841
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
+  SCLAlertView: 3fa76c45826177a02e272c29a9e992585faa189a
   Socket.IO-Client-Swift: 8b5de9b5042c26e9ae9d8a6b23d108f07319cd60
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
 

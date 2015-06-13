@@ -37,7 +37,7 @@ class ExploreCell: UITableViewCell {
         indentationLevel = 1
         
         indentationLayer = CALayer()
-        indentationLayer.backgroundColor = UIColor.SSColor.Blue.CGColor
+        indentationLayer.backgroundColor = UIColor.thrift_blue().CGColor
         layer.addSublayer(indentationLayer)
     }
     
@@ -45,7 +45,7 @@ class ExploreCell: UITableViewCell {
         super.layoutSubviews()
         
 //        title.text = getTitle(exploreItem).uppercaseString
-        title.textColor = UIColor.SSColor.Black
+        title.textColor = UIColor.blackColor()
         title.textAlignment = NSTextAlignment.Left
         title.font = UIFont.SSFont.H4
         

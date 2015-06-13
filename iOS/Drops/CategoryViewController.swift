@@ -36,8 +36,8 @@ ClientDelegate, ExploreHeaderViewDelegate {
         
         self.navigationItem.title = "Categories"
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: Selector("cancel"))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: Selector("done"))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.cancelButton(target: self, selector: "cancelButtonAction")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.saveButton(target: self, selector: "saveButtonAction")
 
         // Register
         tableView.registerClass(ExploreHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
@@ -50,14 +50,14 @@ ClientDelegate, ExploreHeaderViewDelegate {
     
     // MARK: - Actions
     
-    @IBAction func cancel() {
+    @IBAction func cancelButtonAction() {
         selected = nil
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             //
         })
     }
     
-    @IBAction func done() {
+    @IBAction func saveButtonAction() {
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             //
         })

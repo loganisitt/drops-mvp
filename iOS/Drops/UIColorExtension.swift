@@ -51,13 +51,39 @@ extension UIColor {
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
     
-    struct SSColor {
-        static let Aqua     = UIColor(red: 77.0/255.0, green: 213.0/255.0, blue: 203.0/255.0, alpha: 1)
-        static let Black    = UIColor(red: 29.0/255.0, green: 29.0/255.0, blue: 29.0/255.0, alpha: 1)
-        static let Blue     = UIColor(red: 11.0/255.0, green: 81.0/255.0, blue: 84.0/255.0, alpha: 1) // #0b5154
-        static let LightBlue = UIColor(red: 56.0/255.0, green: 148.0/255.0, blue: 141.0/255.0, alpha: 1)
-        static let Red      = UIColor(red: 206.0/255.0, green: 0, blue: 43.0/255.0, alpha: 1)
-        static let Yellow   = UIColor(red: 254.0/255.0, green: 179.0/255.0, blue: 46.0/255.0, alpha: 1)
-        static let White    = UIColor.whiteColor() // UIColor(red: 239.0/255.0, green: 244.0/255.0, blue: 255.0/255.0, alpha: 1)
+    public class func thrift_main_color() -> UIColor {
+        return thrift_green()
+    }
+    
+    public class func thrift_red() -> UIColor {
+        return UIColor(rgba: "#9C2003")
+    }
+    
+    public class func thrift_yellow() -> UIColor {
+        return UIColor(rgba: "#F7CA18")
+    }
+    
+    public class func thrift_orange() -> UIColor {
+        return UIColor(rgba: "#E79335")
+    }
+    
+    public class func thrift_blue() -> UIColor {
+        return UIColor(rgba: "#267191")
+    }
+    
+    public class func thrift_light_blue() -> UIColor {
+        return UIColor(rgba: "#3F829F")
+    }
+    
+    public class func thrift_green() -> UIColor {
+        return UIColor(rgba: "#26A65B")
+    }
+    
+    public class func thrift_white() -> UIColor {
+        return UIColor(rgba: "#FFFFFF")
+    }
+    
+    public class func thrift_gray() -> UIColor {
+        return UIColor(rgba: "#EEEEED")
     }
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyJSON
-import Cartography
 
 class SearchViewController: UIViewController,
 ClientDelegate, UISearchBarDelegate, CategoryViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -40,7 +39,7 @@ ClientDelegate, UISearchBarDelegate, CategoryViewControllerDelegate, UICollectio
         // Nav Bar
         navigationItem.title = "Search"
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonAction", target: self)
         
         addCategoryViewController()
         
@@ -59,7 +58,7 @@ ClientDelegate, UISearchBarDelegate, CategoryViewControllerDelegate, UICollectio
         
         searchBar.delegate = self
         
-        var img = UIImage().imageWithColor(UIColor.SSColor.Red)
+        var img = UIImage().imageWithColor(UIColor.thrift_red())
         searchBar.setBackgroundImage(img, forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         
         // collectionView
@@ -95,30 +94,25 @@ ClientDelegate, UISearchBarDelegate, CategoryViewControllerDelegate, UICollectio
         
         let tv: UITableView = categoryViewController.tableView as UITableView
         
-        layout(searchBar, tv, collectionView) { view1, view2, view3 in
-            
-            view1.top == view1.superview!.top
-            view2.top == view1.bottom
-            view3.top == view1.bottom
-            
-            view2.bottom == view2.superview!.bottom
-            view3.bottom == view3.superview!.bottom
-            
-            view1.leading == view1.superview!.leading
-            view2.leading == view2.superview!.leading
-            view3.leading == view3.superview!.leading
-            
-            view1.trailing == view1.superview!.trailing
-            view2.trailing == view2.superview!.trailing
-            view3.trailing == view3.superview!.trailing
-            
-            view1.height == 44
-        }
+        searchBar.autoPinToTopLayoutGuideOfViewController(self, withInset: 0)
+        searchBar.autoPinEdgeToSuperviewEdge(.Left)
+        searchBar.autoPinEdgeToSuperviewEdge(.Right)
+        searchBar.autoSetDimension(.Height, toSize: 44)
+        
+        tv.autoPinEdge(.Top, toEdge: .Bottom, ofView: searchBar)
+        tv.autoPinEdgeToSuperviewEdge(.Left)
+        tv.autoPinEdgeToSuperviewEdge(.Right)
+        tv.autoPinToBottomLayoutGuideOfViewController(self, withInset: 0)
+        
+        collectionView.autoPinEdge(.Top, toEdge: .Bottom, ofView: searchBar)
+        collectionView.autoPinEdgeToSuperviewEdge(.Left)
+        collectionView.autoPinEdgeToSuperviewEdge(.Right)
+        collectionView.autoPinToBottomLayoutGuideOfViewController(self, withInset: 0)
     }
     
     // MARK: - Actions
     
-    @IBAction func backButtonPressed() {
+    @IBAction func backButtonAction() {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -191,8 +185,8 @@ ClientDelegate, UISearchBarDelegate, CategoryViewControllerDelegate, UICollectio
         let url = NSURL(string: Client.sharedInstance.baseUrl + path)!
         
         cell.imageView.hnk_setImageFromURL(url)
-        cell.titleText.text = listing.name
-        cell.priceText.text = "$\(listing.price)"
+//        cell.titleText.text = listing.name
+//        cell.priceText.text = "$\(listing.price)"
         
         return cell
     }
