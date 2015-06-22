@@ -62,10 +62,6 @@
 
         <service android:name=".GCMMessageHandler" />
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <activity
             android:name=".SearchResultActivity"
             android:label="@string/title_activity_search_result" >
@@ -73,6 +69,12 @@
                 <action android:name="android.intent.action.search" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginActivity">
+        </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="0a7dab0dad523599251eba98efbc48ba068b932e" />
     </application>
 
 </manifest>

@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'com.google.gms.google-services'
 
 android {
@@ -7,7 +22,7 @@ android {
 
     defaultConfig {
         applicationId "com.drops.drops"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -26,4 +41,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:7.5.0'
     compile 'com.sothree.slidinguppanel:library:3.0.0'
     compile project(':facebook')
+    compile('com.twitter.sdk.android:twitter:1.6.0@aar') {
+        transitive = true;
+    }
 }
