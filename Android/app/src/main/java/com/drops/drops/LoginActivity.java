@@ -71,8 +71,6 @@ public class LoginActivity extends ActionBarActivity {
             }
         });
 
-
-
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
 

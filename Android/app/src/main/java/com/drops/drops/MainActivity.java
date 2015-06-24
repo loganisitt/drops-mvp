@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_main);
 
+        // Show ListFragment in Main Screen
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainContainer, new sellingListFragment());
+        ft.commit();
+
         // ********************************
         // * Load Menu in Slide Panel
         // ********************************

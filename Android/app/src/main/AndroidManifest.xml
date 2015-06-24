@@ -29,11 +29,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -69,12 +64,22 @@
                 <action android:name="android.intent.action.search" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" >
         </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="0a7dab0dad523599251eba98efbc48ba068b932e" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/title_activity_splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

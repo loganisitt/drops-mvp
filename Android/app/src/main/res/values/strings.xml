@@ -15,5 +15,25 @@
     <string name="settings">Settings</string>
 
     <color name="green">#007f00</color>
+    <color name="red">#FF0000</color>
+    <string name="title_activity_splash">SplashActivity</string>
+
+    <string-array name="menuItems">
+        <item>Buying</item>
+        <item>Selling</item>
+        <item>Watching</item>
+        <item>Inbox</item>
+        <item>Notifications</item>
+        <item>Settings</item>
+    </string-array>
+
+    <array name="menuIcons">
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+    </array>
 
 </resources>

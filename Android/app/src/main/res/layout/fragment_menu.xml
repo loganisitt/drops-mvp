@@ -6,39 +6,14 @@
     android:orientation="vertical"
     tools:context="com.drops.drops.MenuFragment">
 
-    <Button
-        android:id="@+id/buyingButton"
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/buying"
-        android:textSize="@dimen/abc_text_size_large_material" />
+        android:layout_height="wrap_content">
+    </ListView>
 
-    <Button
-        android:id="@+id/sellingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/selling"
-        android:textSize="@dimen/abc_text_size_large_material" />
-
-    <Button
-        android:id="@+id/inboxButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inbox"
-        android:textSize="@dimen/abc_text_size_large_material" />
-
-    <Button
-        android:id="@+id/notiButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/noti"
-        android:textSize="@dimen/abc_text_size_large_material" />
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:textSize="@dimen/abc_text_size_large_material" />
-
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
