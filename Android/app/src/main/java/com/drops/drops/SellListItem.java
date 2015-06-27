@@ -28,14 +28,27 @@ public class SellListItem {
 
     public static ArrayList<SellListItem> getSellList(){
         ArrayList<SellListItem> sellList = new ArrayList<>();
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
-        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.ic_media_play, R.drawable.ic_cast_dark));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+        sellList.add(new SellListItem("Joker", "NY", "50$", R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.abc_ic_clear_mtrl_alpha));
+
         return sellList;
     }
 

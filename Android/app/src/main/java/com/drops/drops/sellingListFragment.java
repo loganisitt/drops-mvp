@@ -1,6 +1,7 @@
 package com.drops.drops;
 
 
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -61,6 +63,15 @@ public class sellingListFragment extends Fragment{
         // Attach the adapter
         ListView listview = (ListView) view.findViewById(R.id.selling_list);
         listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainContainer, new ListingInfo());
+                ft.commit();
+            }
+        });
     }
 
 }

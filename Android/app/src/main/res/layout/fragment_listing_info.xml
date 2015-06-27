@@ -1,0 +1,84 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="80dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:id="@+id/itemPictureLI"
+            android:layout_width="400dp"
+            android:layout_height="0dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.23"
+            android:contentDescription="Listing Picture"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Title"
+            android:id="@+id/titleTemplateLI" />
+
+        <TextView
+            android:id="@+id/titleItemLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Description"
+            android:id="@+id/descTemplateLI" />
+
+        <TextView
+            android:id="@+id/descItemLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Price"
+            android:id="@+id/priceTemplateLI" />
+
+        <TextView
+            android:id="@+id/priceItemLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Category"
+            android:id="@+id/catTemplateLI" />
+
+        <TextView
+            android:id="@+id/catItemLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Make Offer"
+            android:id="@+id/offerButtonLI"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="#0b5154"
+            android:textColor="#FFF" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Message Seller"
+            android:id="@+id/sellerButtonLI"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="#CF0A2C"
+            android:textColor="#FFF"
+            />
+</LinearLayout>
