@@ -1,12 +1,17 @@
 package com.drops.drops;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.DialogPreference;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -46,6 +51,65 @@ public class ListingInfo extends Fragment {
         description.setText("Item desc here. things. more things. other things.");
         price.setText("lots of $$$");
         category.setText("IDK");
+
+        offer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final EditText input = new EditText(getActivity());
+                input.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("PAYUP")
+                        .setMessage("Description..")
+                        .setView(input)
+                        .setPositiveButton("Buy it", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Dont", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setIcon(android.R.drawable.sym_def_app_icon)
+                        .show();
+
+            }
+        });
+
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Creates a text input line
+                final EditText input = new EditText(getActivity());
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                // Create new Dialog, add input line
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("TIttle")
+                        .setMessage("Message things to people")
+                        .setView(input)
+                        .setPositiveButton("yas", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("Nah", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setIcon(android.R.drawable.sym_def_app_icon)
+                        .show();
+            }
+        });
 
         return view;
     }

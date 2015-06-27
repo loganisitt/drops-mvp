@@ -15,11 +15,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class MenuFragment extends ListFragment implements
         OnItemClickListener{
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +48,8 @@ public class MenuFragment extends ListFragment implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id){
+
+        Toast.makeText(getActivity(), "Pos:" + position, Toast.LENGTH_SHORT).show();
 
     }
 

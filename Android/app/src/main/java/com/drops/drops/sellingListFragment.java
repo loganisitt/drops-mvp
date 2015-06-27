@@ -1,6 +1,7 @@
 package com.drops.drops;
 
 
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
@@ -25,6 +26,13 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+// ******************************************************************************
+// *
+// * SellingListFragment
+// *    Contains a list of items being sold.
+// *    OnItemClick takes you to specified listing.
+// *
+// ******************************************************************************
 
 public class sellingListFragment extends Fragment{
 
@@ -67,9 +75,16 @@ public class sellingListFragment extends Fragment{
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // Create new fragment transaction
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.mainContainer, new ListingInfo());
-                ft.commit();
+
+                // Replace container with new fragment.
+                // add transaction to the backstack to return to previous fragment
+                // when back button is hit
+                ft.replace(R.id.mainContainer, new ListingInfo())
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }

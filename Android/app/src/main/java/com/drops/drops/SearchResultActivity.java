@@ -10,6 +10,18 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
+/** *********************************************************************************
+ *
+ *  SearchResultActivity
+ *      Used to provide search results
+ *
+ *      ToDO:
+ *      - Show ActionBar
+ *      - Add search functions
+ *      - Populate with current db info?
+ *
+ ********************************************************************************** */
+
 public class SearchResultActivity extends AppCompatActivity {
 
     @Override
@@ -17,10 +29,9 @@ public class SearchResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
-        Intent intent = getIntent();
-        String query = intent.getExtras().getString("query");
-
-        Toast.makeText(this, "Query:" + query, Toast.LENGTH_SHORT).show();
+        //Intent intent = getIntent();
+        //String query = intent.getExtras().getString("query");
+        //Toast.makeText(this, "Query:" + query, Toast.LENGTH_SHORT).show();
     }
 
     @Override

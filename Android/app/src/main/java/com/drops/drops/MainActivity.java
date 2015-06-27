@@ -3,6 +3,7 @@ package com.drops.drops;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -24,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TWITTER_KEY = "VgNXzRsGlllTVn7XFUh8FUPv2";
     private static final String TWITTER_SECRET = "HmtZUUvQi836twchfY3cvfK2VkJDBTGXvpQWeUzMUrWXE7TXVL";
 
-
+    ImageView searchButton;
     SlidingUpPanelLayout mLayout;
 
     @Override
@@ -33,6 +36,18 @@ public class MainActivity extends AppCompatActivity {
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_main);
+
+        // Search Button on ActionBar
+        searchButton = (ImageView) findViewById(R.id.searchAction);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent searchIntent = new Intent(getApplicationContext(),
+                        SearchResultActivity.class);
+                startActivity(searchIntent);
+
+            }
+        });
 
         // Show ListFragment in Main Screen
         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -78,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
 
+        /*
         // Search ActionBar
         //   Gets query and passes it to the SearchResultActivity
         MenuItem searchItem = menu.findItem(R.id.search);
@@ -99,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+        */
         return true;
     }
 
