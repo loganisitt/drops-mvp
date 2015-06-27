@@ -17,13 +17,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.drops.drops" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="161d3cde-6846-4f86-875c-144e7bc3b8c6" name="Default" comment="Added listing info. Small UI changes.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/ListingInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/ListingInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/MenuFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/MenuFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/SearchResultActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/SearchResultActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/sellingListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/drops/drops/sellingListFragment.java" />
+    <list default="true" id="161d3cde-6846-4f86-875c-144e7bc3b8c6" name="Default" comment="Changed how some fragments were being shown, increasing fluidity.&#10;Incremental changes: actionbar, dialogs, layouts.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Android.iws" />
@@ -89,8 +83,8 @@
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67085713">
-              <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
+            <state vertical-scroll-proportion="1.3782858">
+              <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
               <folding>
                 <element signature="e#2732#2750#0" expanded="true" />
               </folding>
@@ -3756,7 +3750,13 @@
       <option name="project" value="LOCAL" />
       <updated>1435389301520</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed how some fragments were being shown, increasing fluidity.&#10;Incremental changes: actionbar, dialogs, layouts.">
+      <created>1435438344470</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1435438344470</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3770,7 +3770,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1365" y="0" width="1922" height="1081" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3824,7 +3824,8 @@
     <MESSAGE value="IOS-Style Login draft, style changes." />
     <MESSAGE value="Added Selling List adapter/Views." />
     <MESSAGE value="Added listing info. Small UI changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added listing info. Small UI changes." />
+    <MESSAGE value="Changed how some fragments were being shown, increasing fluidity.&#10;Incremental changes: actionbar, dialogs, layouts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed how some fragments were being shown, increasing fluidity.&#10;Incremental changes: actionbar, dialogs, layouts." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4242,8 +4243,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67085713">
-          <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
+        <state vertical-scroll-proportion="1.3782858">
+          <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
           <folding>
             <element signature="e#2732#2750#0" expanded="true" />
           </folding>
